@@ -1,0 +1,206 @@
+body{
+    background-color: var(--back-color);
+    display: flex;
+}
+
+.container{
+    width: 80vw;
+}
+
+a{
+    color: var(--a-color);
+    transition: .25s;
+    border-radius: 10px;
+}
+
+.tablinks{
+    color: var(--a-color);
+}
+
+ul {
+    list-style-type: none;
+}
+
+.item h4 {
+    font-size: 2rem;
+    line-height: 1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 7.35vw 0;
+}
+
+.item span {
+    font-style: normal;
+}
+
+.columnplaylist{
+    float: left;
+    /*width: 53%;*/
+    width: 50vw;
+    display: block;
+    padding-left: 200px;
+}
+
+.navbar {
+    margin-bottom: 0;
+    background-color: var(--primary-color);
+    z-index: 9999;
+    border: 0;
+    font-size: 2rem !important;
+    line-height: 1.5 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+    transition: .15s !important;
+}
+
+.navbar li a, .navbar .navbar-brand {
+    color: var(--secondary-color) !important;
+}
+
+.navbar-brand{
+    margin-top: -0.7vh;
+    font-size: 3rem;
+}
+
+.navbar-brand-simbol{
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: var(--primary-color)!important;
+    background-color:var(--secondary-color) !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: var(--secondary-color) !important;
+}
+
+nav {
+    display: flex;
+    padding-top: 0.3vh;
+    padding-bottom: 0.3vh;
+    padding-left:1vw;
+}
+
+.theme-switch {
+    margin-top:40%;
+    display: inline-block;
+    height: 17px;
+    position: relative;
+    width: 30px;                  
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color:black;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .2s;
+}
+
+.slider:before {
+    background-color:white;                           
+    bottom: 2px;
+    content: "";
+    height: 13px;
+    left: 2px;
+    position: absolute;
+    transition: .2s;
+    width: 13px;
+}
+
+input:checked + .slider {
+     background-color:lightslategray;
+}
+
+    input:checked + .slider:before {
+        transform: translateX(13px);
+    }
+
+.slider.round {
+    border-radius: 17px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+:root {
+    --secondary-color:black;
+    --primary-color:white;
+    --back-color:white;
+    --a-color: black;
+    --icons-color: invert(0%);
+}
+
+
+[data-theme="dark"] {
+    --secondary-color: #ffffff;
+    --primary-color: #2f2f2f;
+    --back-color: #2f2f2f;
+    --a-color: #ffffff;
+    --icons-color: invert(100%)
+}
+
+
+
+.tab{
+    display: flex;
+    padding-left: 50px;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px 14px 16px;
+    transition: 0.3s;
+    font-size: 16px;
+    border-radius: 17px;
+  }
+  
+/* Change background color of buttons on hover */
+.tab button:hover {
+background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+background-color: var(--primary-color);
+}
+
+#barraPesquisa{
+    width: 300px;
+    border-radius: 25px;
+    margin-right: 2.5vw;
+    margin-top: 0.2vh;
+    margin-left: 15px;
+    height: 45px;
+    font-size: em;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+    text-align: center;
+    table-layout: fixed;
+  }
+  td, th {
+    border: 1px solid black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
