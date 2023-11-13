@@ -13,6 +13,10 @@ a{
     border-radius: 10px;
 }
 
+h1,h2,h3,h3,h4,p{
+    color: var(--a-color);
+}
+
 .tablinks{
     color: var(--a-color);
 }
@@ -204,3 +208,26 @@ table {
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Create two equal columns that floats next to each other */
+  .column {
+    margin-top: 100px;
+    float: left;
+    width: 70%;
+    padding: 10px;
+    height: 756px; /* Should be removed. Only for demonstration */
+  }
+  .column2 {
+    margin-top: 100px;
+    float: left;
+    width: 25%;
+    padding: 10px;
+    height: 756px; /* Should be removed. Only for demonstration */
+    background-color: lightgrey;
+    border-radius: 20px;
+  }
+ 

@@ -6,6 +6,26 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js' //novo
 let cena = new THREE.Scene()
 //let mycanvas=document.getElementById('canvasContainer')
 
+//Obrigar a página a atualizar quando se dá resize na mesma
+window.addEventListener('resize', function(event){
+    window.location.reload();
+})
+
+let btnMaterial1 = document.getElementById('btnMaterial1');
+
+//Implementar o primeiro material
+btnMaterial1.addEventListener("click", function(){
+    cena.getObjectByName('Tampo').material = new THREE.ShadowMaterial;
+    cena.getObjectByName('Pes').material = new THREE.ShadowMaterial;
+    cena.getObjectByName('Gaveta_L').material = new THREE.ShadowMaterial;
+    cena.getObjectByName('Gaveta_R').material = new THREE.ShadowMaterial;
+    cena.getObjectByName('Nicho').material = new THREE.ShadowMaterial;
+    cena.getObjectByName('Porta_R').material = new THREE.ShadowMaterial;
+    cena.getObjectByName('Porta_L').material = new THREE.ShadowMaterial;
+    animar()
+})
+
+
 /* geometria...  (novo)*/
 let carregador = new GLTFLoader()
 carregador.load(
@@ -16,14 +36,20 @@ carregador.load(
 )
 
 /* camara.. */
-let camara = new THREE.PerspectiveCamera( 50, (window.innerWidth  / window.innerHeight), 0.01, 1000 )
-camara.position.set(0,2,4)
+let camara = new THREE.PerspectiveCamera( 40, (window.innerWidth  / window.innerHeight), 0.01, 1000 )
+camara.position.set(2,2,3)
 //camara.lookAt(0,0,0)
 
 /* renderer... */
-let renderer = new THREE.WebGLRenderer(/*{canvas:canvasContainer}*/)
-renderer.setSize( window.innerWidth, window.innerHeight )
-document.body.appendChild( renderer.domElement )
+
+let container = document.getElementById('container')
+let renderer = new THREE.WebGLRenderer()
+//Dar o tamanho ao canvas a partir do objeto e nao da resolução do ecrã
+renderer.setSize($(container).width(), $(container).height());
+//let renderer = new THREE.WebGLRenderer(/*{canvas:canvasContainer}*/)
+//renderer.setSize( window.innerWidth, window.innerHeight )
+//renderer.setSize(container.offsetWidth, container.offsetHeight);
+container.appendChild(renderer.domElement);
 
 //GREHLA E EIXOS DEIXAR COMENTADO
 //let grelha = new THREE.GridHelper()
