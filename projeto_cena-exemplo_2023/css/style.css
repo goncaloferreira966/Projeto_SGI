@@ -222,7 +222,7 @@ table {
     height: 756px; /* Should be removed. Only for demonstration */
   }
   .column2 {
-    margin-top: 100px;
+    margin-top: 150px;
     float: left;
     width: 25%;
     padding: 10px;
