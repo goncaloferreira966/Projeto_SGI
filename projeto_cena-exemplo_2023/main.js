@@ -36,7 +36,7 @@ carregador.load(
 )
 
 /* camara.. */
-let camara = new THREE.PerspectiveCamera( 40, (window.innerWidth  / window.innerHeight), 0.01, 1000 )
+let camara = new THREE.PerspectiveCamera( 32, (window.innerWidth  / window.innerHeight), 0.01, 1000 )
 camara.position.set(3,2,3)
 //camara.lookAt(0,0,0)
 
