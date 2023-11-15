@@ -37,7 +37,7 @@ carregador.load(
 
 /* camara.. */
 let camara = new THREE.PerspectiveCamera( 40, (window.innerWidth  / window.innerHeight), 0.01, 1000 )
-camara.position.set(2,2,3)
+camara.position.set(3,2,3)
 //camara.lookAt(0,0,0)
 
 /* renderer... */
@@ -58,8 +58,10 @@ container.appendChild(renderer.domElement);
 //let eixos = new THREE.AxesHelper(3)
 //cena.add( eixos )
 
-new OrbitControls( camara, renderer.domElement ) // sem o THREE.
-
+//Controlar o ZOOM
+let controls = new OrbitControls( camara, renderer.domElement ) // sem o THREE.
+controls.minDistance = 3;//distancia minima
+controls.maxDistance = 5;//distancia maxima
 
 // Renderizar e animar
 let delta = 0;			  // tempo desde a última atualização

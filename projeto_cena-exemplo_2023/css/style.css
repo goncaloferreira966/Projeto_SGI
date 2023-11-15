@@ -1,23 +1,29 @@
-body{
+body {
     background-color: var(--back-color);
     display: flex;
 }
 
-.container{
+.container {
     width: 80vw;
 }
 
-a{
+a {
     color: var(--a-color);
     transition: .25s;
-    border-radius: 10px;
+    border-radius: 25px;
+    font-size: medium;
 }
 
-h1,h2,h3,h3,h4,p{
+h1,
+h2,
+h3,
+h3,
+h4,
+p {
     color: var(--a-color);
 }
 
-.tablinks{
+.tablinks {
     color: var(--a-color);
 }
 
@@ -37,7 +43,7 @@ ul {
     font-style: normal;
 }
 
-.columnplaylist{
+.columnplaylist {
     float: left;
     /*width: 53%;*/
     width: 50vw;
@@ -57,23 +63,25 @@ ul {
     transition: .15s !important;
 }
 
-.navbar li a, .navbar .navbar-brand {
+.navbar li a,
+.navbar .navbar-brand {
     color: var(--secondary-color) !important;
 }
 
-.navbar-brand{
+.navbar-brand {
     margin-top: -0.7vh;
     font-size: 3rem;
 }
 
-.navbar-brand-simbol{
+.navbar-brand-simbol {
     display: inline-block !important;
     vertical-align: middle !important;
 }
 
-.navbar-nav li a:hover, .navbar-nav li.active a {
-    color: var(--primary-color)!important;
-    background-color:var(--secondary-color) !important;
+.navbar-nav li a:hover,
+.navbar-nav li.active a {
+    /*color: var(--primary-color) !important;*/
+    background-color: lightgray !important;
 }
 
 .navbar-default .navbar-toggle {
@@ -85,15 +93,15 @@ nav {
     display: flex;
     padding-top: 0.3vh;
     padding-bottom: 0.3vh;
-    padding-left:1vw;
+    padding-left: 1vw;
 }
 
 .theme-switch {
-    margin-top:40%;
+    margin-top: 45%;
     display: inline-block;
     height: 17px;
     position: relative;
-    width: 30px;                  
+    width: 30px;
 }
 
 .theme-switch input {
@@ -101,7 +109,7 @@ nav {
 }
 
 .slider {
-    background-color:black;
+    background-color: black;
     bottom: 0;
     cursor: pointer;
     left: 0;
@@ -112,7 +120,7 @@ nav {
 }
 
 .slider:before {
-    background-color:white;                           
+    background-color: white;
     bottom: 2px;
     content: "";
     height: 13px;
@@ -122,13 +130,13 @@ nav {
     width: 13px;
 }
 
-input:checked + .slider {
-     background-color:lightslategray;
+input:checked+.slider {
+    background-color: lightslategray;
 }
 
-    input:checked + .slider:before {
-        transform: translateX(13px);
-    }
+input:checked+.slider:before {
+    transform: translateX(13px);
+}
 
 .slider.round {
     border-radius: 17px;
@@ -140,11 +148,12 @@ input:checked + .slider {
 
 
 :root {
-    --secondary-color:black;
-    --primary-color:white;
-    --back-color:white;
+    --secondary-color: black;
+    --primary-color: white;
+    --back-color: white;
     --a-color: black;
     --icons-color: invert(0%);
+    --menupropertis-color: rgb(227, 226, 226);
 }
 
 
@@ -153,12 +162,13 @@ input:checked + .slider {
     --primary-color: #2f2f2f;
     --back-color: #2f2f2f;
     --a-color: #ffffff;
-    --icons-color: invert(100%)
+    --icons-color: invert(100%);
+    --menupropertis-color: rgb(83, 82, 82);
 }
 
 
 
-.tab{
+.tab {
     display: flex;
     padding-left: 50px;
 }
@@ -173,61 +183,56 @@ input:checked + .slider {
     transition: 0.3s;
     font-size: 16px;
     border-radius: 17px;
-  }
-  
+}
+
 /* Change background color of buttons on hover */
 .tab button:hover {
-background-color: #ddd;
+    background-color: #ddd;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-background-color: var(--primary-color);
+    background-color: var(--primary-color);
 }
 
-#barraPesquisa{
+#barraPesquisa {
     width: 300px;
     border-radius: 25px;
-    margin-right: 2.5vw;
-    margin-top: 0.2vh;
-    margin-left: 15px;
+    margin-right: 5px;
+    margin-top: 7px;
+    margin-left: 5px;
     height: 45px;
-    font-size: em;
 }
 
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid black;
-    text-align: center;
-    table-layout: fixed;
-  }
-  td, th {
-    border: 1px solid black;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  * {
-    box-sizing: border-box;
-  }
-  
-  /* Create two equal columns that floats next to each other */
-  .column {
-    margin-top: 100px;
+/* Create two equal columns that floats next to each other */
+.column {
+    margin-top: 150px;
     float: left;
     width: 70%;
     padding: 10px;
-    height: 756px; /* Should be removed. Only for demonstration */
-  }
-  .column2 {
+    height: 756px;
+    /* Should be removed. Only for demonstration */
+    border-radius: 20px;
+}
+
+.column2 {
     margin-top: 150px;
     float: left;
     width: 25%;
     padding: 10px;
-    height: 756px; /* Should be removed. Only for demonstration */
-    background-color: lightgrey;
+    height: 756px;
+    /* Should be removed. Only for demonstration */
+    background-color:var(--menupropertis-color) !important;
     border-radius: 20px;
-  }
- 
+}
+
+#buttonCustomise{
+    color: var(--secondary-color) !important;
+    background-color: var(--primary-color) !important;
+    border-radius: 25px;
+}
+#buttonCustomise:hover{
+    color: var(--secondary-color) !important;
+    background-color: rgb(240, 76, 58) !important;
+}

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/style.css">
 
 
@@ -41,17 +42,19 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.html"><img class="navbar-brand-simbol" src="./model/logo.png"
-                        style="margin-right: 10px;" width="80px" height="80px"><span class="navbar-brand-simbol">La
-                        Redoute</span></a>
+                        style="margin-right: 10px;" width="90px" height="90px"><span
+                        class="navbar-brand-simbol"></span></a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar" style="padding-top: 15px;">
                 <ul class="nav navbar-nav navbar-right">
-
-                    <li><input id="barraPesquisa" type="text" class="form-control" placeholder="O que procura?"
-                            required></li>
-                    <li><a href="index.html">Menu</a></li>
-                    <li><a href="index.html">Ofertas</a></li>
-                    <li><a href="index.html">Entrar / Registar</a></li>
+                    <li><input id="barraPesquisa" type="text" class="form-control" placeholder="O que procura?"></li>
+                    <li><a href="index.html"><i class="bi-list" style="font-size: 25px;"></i> Menu</a></li>
+                    <li style="color: red !important;"><a style="color: red !important;" href="index.html"><i
+                                class="bi-tag" style="font-size: 25px;color: red !important;"></i> Ofertas</a></li>
+                    <li><a href="index.html"><i class="bi-person" style="font-size: 25px;"></i> Entrar / Registar</a>
+                    </li>
+                    <li><a><i style="font-size: 25px; margin-left: 5px;" class="bi-heart"></i></a></li>
+                    <li><a><i style="font-size: 25px; margin-left: 5px;" class="bi-bag"></i></a></li>
                     <li>
                         <nav>
                             <div class="theme-switch-wrapper">
@@ -66,26 +69,39 @@
             </div>
         </div>
     </nav>
+
     <br>
     <br>
-  
-        <div class="column" id="container">
-       
-        </div>
-        <div class="column2" style="text-align: center;">
-            <h2>Mesa Vintage</h2>
-            <h3>Escolha uma Cor:</h3>
-            <input type="image" id="btnMaterial1" src="./model/materials/Wicker2_Color_1K.png" width="40px" style="border-radius: 50px;">
-            <input type="image" id="btnMaterial2" src="./model/materials/Wicker2_Normal_1K.png" width="40px" style="border-radius: 50px;">
-            <input type="image" id="btnMaterial3" src="./model/materials/Wood_Color_2K.png" width="40px" style="border-radius: 50px;">
-            <input type="image" id="btnMaterial4" src="./model/materials/Wood_Normal_2K.png" width="40px" style="border-radius: 50px;">
 
-            
-           
-        </div>
+    <div class="column" id="container" style=" border-radius: 20px;">
 
-    
-    <!--Ou redirecionar o cavas para aqui, ou redirecionar para o document.body-->
+    </div>
+    <div class="column2" style="text-align: left;">
+        <h2>Mesa Vintage</h2>
+        <!--Cor-->
+        <div>
+            <h4>Escolha uma Cor:</h4>
+            <div style="text-align: center;">
+                <input type="image" id="btnMaterial1" src="./model/materials/Wicker2_Color_1K.png" width="40px"
+                    style="border-radius: 50px;">
+                <input type="image" id="btnMaterial2" src="./model/materials/Wicker2_Normal_1K.png" width="40px"
+                    style="border-radius: 50px;">
+                <input type="image" id="btnMaterial3" src="./model/materials/Wood_Color_2K.png" width="40px"
+                    style="border-radius: 50px;">
+                <input type="image" id="btnMaterial4" src="./model/materials/Wood_Normal_2K.png" width="40px"
+                    style="border-radius: 50px;">
+            </div>
+        </div>
+        <!--Preço-->
+        <div style="text-align: right;">
+            <h3 style="text-decoration: line-through; display: block;">999€</h3>
+            <h3 style=" color: red; display: block;">879€</h3>
+            <button type="button" id="buttonCustomise" class="btn" style="width: 100%; font-size: medium;"><i style="font-size: 25px; margin-left: 5px;" class="bi-bag"></i> Juntar
+                ao
+                Carrinho</button>
+            <h4 style="text-align: center;"><i style="font-size: 25px; margin-left: 5px;" class="bi-clock"></i> Disponível para envio até 5 dias úteis</h4>             
+        </div>
+    </div>
 </body>
 
 </html>
