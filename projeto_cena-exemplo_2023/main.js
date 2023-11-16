@@ -4,7 +4,14 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js' //novo
 
 /* cena... */
 let cena = new THREE.Scene()
-//let mycanvas=document.getElementById('canvasContainer')
+let colorPicker = document.getElementById("colorChoice")
+let cor = colorPicker.value 
+
+colorPicker.addEventListener("change", function () {
+    cor = document.getElementById("colorChoice").value
+    luzes(cena)
+    animar();
+})
 
 //Obrigar a página a atualizar quando se dá resize na mesma
 window.addEventListener('resize', function(event){
@@ -80,8 +87,15 @@ function animar() {
 }
 
 function luzes(cena) {
+    //Remover todas as cores, cada vez que a função é chamada
+    //Caso contrario a cor vai ficando cada vez mais luminosa
+    cena.children.forEach((child) => {
+        if (child instanceof THREE.AmbientLight || child instanceof THREE.PointLight || child instanceof THREE.DirectionalLight) {
+            cena.remove(child);
+        }
+    });
     /* luzes... */
-    const luzAmbiente = new THREE.AmbientLight( "lightgreen" )
+    const luzAmbiente = new THREE.AmbientLight( "white" )
     cena.add(luzAmbiente)
     
     /* point light */
@@ -95,7 +109,7 @@ function luzes(cena) {
     cena.add( lightHelper1 )
 
     /* directional light*/
-    const luzDirecional = new THREE.DirectionalLight( "white" );
+    const luzDirecional = new THREE.DirectionalLight( cor );
     luzDirecional.position.set( 3, 2, 0 ); //aponta na direção de (0, 0, 0)
     luzDirecional.intensity= 30
     cena.add( luzDirecional );
