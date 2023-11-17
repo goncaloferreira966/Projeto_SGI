@@ -2,6 +2,10 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js' 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js' //novo
 
+
+//Apagar
+let btn_teste = document.getElementById("buttonCustomise")
+
 /* cena... */
 let cena = new THREE.Scene()
 let colorPicker = document.getElementById("colorChoice")
@@ -32,13 +36,38 @@ btnMaterial1.addEventListener("click", function(){
     animar()
 })
 
+// ----- Animações -----
+let relogio = new THREE.Clock();
+let misturador = new THREE.AnimationMixer(cena)
+let reverse = false
+
+//Gaveta Esquerda
+let acaoGavetaEsquerda
+let clipeGavetaEsquerda
 
 /* geometria...  (novo)*/
 let carregador = new GLTFLoader()
 carregador.load(
     'model/vintageDesk.gltf', 
     function ( gltf ) {
-        cena.add( gltf.scene )
+
+        clipeGavetaEsquerda = THREE.AnimationClip.findByName(gltf.animations, 'Gaveta_LAction')
+        acaoGavetaEsquerda = misturador.clipAction(clipeGavetaEsquerda)
+
+        cena.add(gltf.scene)
+
+        btn_teste.addEventListener("click", function(){
+            
+            console.log('gaveta L')
+            acaoGavetaEsquerda.play()
+         })
+
+         cena.traverse(function (elemento) {
+            if (elemento.isMesh) {
+                elemento.castShadow = true
+                elemento.receiveShadow = true
+            }
+        });
     }
 )
 
@@ -72,8 +101,10 @@ controls.maxDistance = 5;//distancia maxima
 
 // Renderizar e animar
 let delta = 0;			  // tempo desde a última atualização
-let relogio = new THREE.Clock(); // componente que obtém o delta
+relogio = new THREE.Clock(); // componente que obtém o delta
 let latencia_minima = 1 / 60;    // tempo mínimo entre cada atualização
+
+/*
 function animar() {
     requestAnimationFrame(animar);  // agendar animar para o próximo animation frame
     delta += relogio.getDelta();    // acumula tempo que passou desde a ultima chamada de getDelta
@@ -84,6 +115,14 @@ function animar() {
     renderer.render( cena, camara )
     
     delta = delta % latencia_minima;// atualizar delta com o excedente
+}
+*/
+
+function animar() {
+    requestAnimationFrame(animar)
+    misturador.update( relogio.getDelta() )
+    //stats.update()
+    renderer.render(cena, camara)
 }
 
 function luzes(cena) {
@@ -119,9 +158,9 @@ function luzes(cena) {
     //cena.add( lightHelper2 )
 }
 
+
 //Remove a cor de fundo do render e da cena
 renderer.setClearColor( 0xffffff, 0);
-
 
 luzes(cena)
 animar()
