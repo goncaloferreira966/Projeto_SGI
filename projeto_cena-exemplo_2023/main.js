@@ -3,11 +3,11 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js' //novo
 
 //Constantes
-const FECHADA = 0
 const ABERTA = 1
+const FECHADA = 0
 
 //Apagar
-//abertura gaveta -0.325176 m
+//abertura gaveta -0.325176 m direção y
 let btn_teste = document.getElementById("buttonCustomise")
 
 /* cena... */
@@ -40,7 +40,7 @@ btnMaterial1.addEventListener("click", function(){
     animar()
 })
 
-// ----- Animações -----
+// -------- Animações --------
 let relogio = new THREE.Clock();
 let misturador = new THREE.AnimationMixer(cena)
 
@@ -49,19 +49,38 @@ let acaoGEsq
 let clipeGEsq
 let estadoGEsq = FECHADA
 
+//Gaveta Direita
+let acaoGDir
+let clipeGDir
+let estadoGDir = FECHADA
+
 /* geometria...  (novo)*/
 let carregador = new GLTFLoader()
 carregador.load(
     'model/vintageDesk.gltf', 
     function ( gltf ) {
 
+        // -------- Inicialização animações --------
+        //Gaveta direita
+        clipeGDir = THREE.AnimationClip.findByName(gltf.animations, 'Gaveta_RAction')
+        acaoGDir = misturador.clipAction(clipeGDir)
+
+        //Gaveta esquerda
         clipeGEsq = THREE.AnimationClip.findByName(gltf.animations, 'Gaveta_LAction')
         acaoGEsq = misturador.clipAction(clipeGEsq)
 
-        cena.add(gltf.scene)
+        cena.add(gltf.scene) //Adicionar movimentos à cena
 
         btn_teste.addEventListener("click", function(){
 
+            //Acao gaveta direita
+            acaoGDir.timeScale = estadoGDir === FECHADA ? (estadoGDir = ABERTA, 1) : (estadoGDir = FECHADA, -1); //Defenir acao da gaveta esquerda (Abrir/Fechar)
+            acaoGDir.clampWhenFinished = true; //Pausar a animação quando chegar ao fim
+            acaoGDir.setLoop(THREE.LoopOnce);  //Fazer a animação só uma vez
+            acaoGDir.play()                    //Começar a animação
+            acaoGDir.paused = false            //Defenir que a animação está em andamento
+
+            //Acao gaveta esquerda
             acaoGEsq.timeScale = estadoGEsq === FECHADA ? (estadoGEsq = ABERTA, 1) : (estadoGEsq = FECHADA, -1); //Defenir acao da gaveta esquerda (Abrir/Fechar)
             acaoGEsq.clampWhenFinished = true; //Pausar a animação quando chegar ao fim
             acaoGEsq.setLoop(THREE.LoopOnce);  //Fazer a animação só uma vez
@@ -172,3 +191,10 @@ renderer.setClearColor( 0xffffff, 0);
 
 luzes(cena)
 animar()
+
+// -------- Ideias --------
+
+
+
+// -------- Coisas a fazer --------
+//Secretaria está a desaparecer ao mover, fazer com que não seja possivel mover o objeto
