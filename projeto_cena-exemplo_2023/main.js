@@ -2,6 +2,9 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js' 
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js' //novo
 
+//Constantes
+const FECHADA = 0
+const ABERTA = 1
 
 //Apagar
 //abertura gaveta -0.325176 m
@@ -40,11 +43,11 @@ btnMaterial1.addEventListener("click", function(){
 // ----- Animações -----
 let relogio = new THREE.Clock();
 let misturador = new THREE.AnimationMixer(cena)
-let reverse = false
 
 //Gaveta Esquerda
-let acaoGavetaEsquerda
-let clipeGavetaEsquerda
+let acaoGEsq
+let clipeGEsq
+let estadoGEsq = FECHADA
 
 /* geometria...  (novo)*/
 let carregador = new GLTFLoader()
@@ -52,15 +55,19 @@ carregador.load(
     'model/vintageDesk.gltf', 
     function ( gltf ) {
 
-        clipeGavetaEsquerda = THREE.AnimationClip.findByName(gltf.animations, 'Gaveta_LAction')
-        acaoGavetaEsquerda = misturador.clipAction(clipeGavetaEsquerda)
+        clipeGEsq = THREE.AnimationClip.findByName(gltf.animations, 'Gaveta_LAction')
+        acaoGEsq = misturador.clipAction(clipeGEsq)
 
         cena.add(gltf.scene)
 
         btn_teste.addEventListener("click", function(){
+
+            acaoGEsq.timeScale = estadoGEsq === FECHADA ? (estadoGEsq = ABERTA, 1) : (estadoGEsq = FECHADA, -1); //Defenir acao da gaveta esquerda (Abrir/Fechar)
+            acaoGEsq.clampWhenFinished = true; //Pausar a animação quando chegar ao fim
+            acaoGEsq.setLoop(THREE.LoopOnce);  //Fazer a animação só uma vez
+            acaoGEsq.play()                    //Começar a animação
+            acaoGEsq.paused = false            //Defenir que a animação está em andamento
             
-            console.log('gaveta L')
-            acaoGavetaEsquerda.play()
          })
 
          cena.traverse(function (elemento) {
