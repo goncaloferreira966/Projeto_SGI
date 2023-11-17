@@ -4,6 +4,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js' //novo
 
 
 //Apagar
+//abertura gaveta -0.325176 m
 let btn_teste = document.getElementById("buttonCustomise")
 
 /* cena... */
