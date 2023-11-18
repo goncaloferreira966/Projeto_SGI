@@ -219,7 +219,7 @@ input:checked+.slider:before {
 .column2 {
     margin-top: 150px;
     float: left;
-    width: 25%;
+    width: 27%;
     padding: 10px;
     height: 756px;
     /* Should be removed. Only for demonstration */
@@ -227,12 +227,17 @@ input:checked+.slider:before {
     border-radius: 20px;
 }
 
-#buttonCustomise{
+#buttonCustomise, #btnCart{
     color: var(--secondary-color) !important;
     background-color: var(--primary-color) !important;
     border-radius: 25px;
 }
 #buttonCustomise:hover{
+    color: var(--secondary-color) !important;
+    background-color: lightgray !important;
+}
+
+ #btnCart:hover{
     color: var(--secondary-color) !important;
     background-color: rgb(240, 76, 58) !important;
 }

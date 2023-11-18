@@ -15,6 +15,7 @@ let cena = new THREE.Scene()
 let colorPicker = document.getElementById("colorChoice")
 let cor = colorPicker.value 
 
+//Função para obter a cor do input type color
 colorPicker.addEventListener("change", function () {
     cor = document.getElementById("colorChoice").value
     luzes(cena)
@@ -86,6 +87,13 @@ carregador.load(
             acaoGEsq.setLoop(THREE.LoopOnce);  //Fazer a animação só uma vez
             acaoGEsq.play()                    //Começar a animação
             acaoGEsq.paused = false            //Defenir que a animação está em andamento
+
+           if(estadoGDir == 0){
+                document.getElementById("buttonCustomise").innerHTML = `<i id="iDasGavetas" style="font-size: 25px; margin-left: 5px;" class="bi bi-eye-fill"></i> Abrir Gavetas`
+            }
+            else{
+                document.getElementById("buttonCustomise").innerHTML = `<i id="iDasGavetas" style="font-size: 25px; margin-left: 5px;" class="bi bi-eye-slash-fill"></i> Fechar Gavetas`
+            }
             
          })
 
