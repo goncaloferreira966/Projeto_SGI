@@ -221,23 +221,113 @@ input:checked+.slider:before {
     float: left;
     width: 27%;
     padding: 10px;
-    height: 756px;
     /* Should be removed. Only for demonstration */
-    background-color:var(--menupropertis-color) !important;
+    background-color: var(--menupropertis-color) !important;
     border-radius: 20px;
 }
 
-#buttonCustomise, #btnCart{
+#buttonCustomise,
+#btnCart {
     color: var(--secondary-color) !important;
     background-color: var(--primary-color) !important;
     border-radius: 25px;
 }
-#buttonCustomise:hover{
+
+#buttonCustomise:hover {
     color: var(--secondary-color) !important;
     background-color: lightgray !important;
 }
 
- #btnCart:hover{
+#btnCart:hover {
     color: var(--secondary-color) !important;
     background-color: rgb(240, 76, 58) !important;
+}
+
+@media screen and (max-width: 1400px) {
+    .container {
+        width: 100%;
+        text-align: center;
+    }
+
+    body {
+        align-items: center;
+        text-align: center;
+    }
+
+    .tab button {
+        padding: 14px 16px;
+    }
+
+    .navbar-brand {
+        margin-top: -0.7vh;
+        margin-left: 10vw;
+        font-size: 2rem;
+    }
+
+    .navbar {
+        font-size: 1.5rem !important;
+    }
+    #switchTheme{
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 1115px) {
+
+    .container {
+        width: 100%;
+        text-align: center;
+    }
+
+    body {
+        align-items: center;
+        text-align: center;
+    }
+
+    .tab button {
+        padding: 14px 16px;
+    }
+
+    .navbar-brand {
+        margin-top: -0.7vh;
+        margin-left: 10vw;
+        font-size: 2rem;
+    }
+
+    .navbar {
+        font-size: 1.5rem !important;
+    }
+
+    #myNavbar{
+        margin-top: 70px;
+    }
+
+    #switchTheme{
+        margin-right: 10px;
+    }
+}
+
+
+
+@media screen and (max-width: 767px) {
+
+    .container {
+        width: 95%;
+        text-align: center;
+    }
+
+    #barraPesquisa {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    #myNavbar{
+     text-align: center;
+    }
+
+    #switchTheme{
+        margin-left: 47%;
+    }
 }
