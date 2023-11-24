@@ -139,6 +139,13 @@ let controls = new OrbitControls( camara, renderer.domElement ) // sem o THREE.
 controls.minDistance = 3;//distancia minima
 controls.maxDistance = 5;//distancia maxima
 
+//Prevenir o drag/mover o objeto para fora do canvas
+controls.mouseButtons = {
+    LEFT: THREE.MOUSE.ROTATE,
+    MIDDLE: THREE.MOUSE.DOLLY,
+    RIGHT: ''
+}
+
 // Renderizar e animar
 let delta = 0;			  // tempo desde a última atualização
 relogio = new THREE.Clock(); // componente que obtém o delta
@@ -196,6 +203,8 @@ function luzes(cena) {
     const lightHelper2 = new THREE.DirectionalLightHelper( luzDirecional, 0.2 )
     //Esta é a linha da luz DEIXAR COMENTADO
     //cena.add( lightHelper2 )
+
+
 }
 
 
