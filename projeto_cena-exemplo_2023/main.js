@@ -119,7 +119,8 @@ camara.position.set(3,2,3)
 /* renderer... */
 
 let container = document.getElementById('container')
-let renderer = new THREE.WebGLRenderer()
+let renderer = new THREE.WebGLRenderer({ antialias: true }); //Render com mais qualidade
+renderer.setPixelRatio(window.devicePixelRatio);             //Render com mais qualidade
 //Dar o tamanho ao canvas a partir do objeto e nao da resolução do ecrã
 renderer.setSize($(container).width(), $(container).height());
 //let renderer = new THREE.WebGLRenderer(/*{canvas:canvasContainer}*/)
