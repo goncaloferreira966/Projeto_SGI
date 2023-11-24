@@ -214,9 +214,12 @@ renderer.setClearColor( 0xffffff, 0);
 luzes(cena)
 animar()
 
+
 // -------- Ideias --------
 
 
 
 // -------- Coisas a fazer --------
-//Secretaria está a desaparecer ao mover, fazer com que não seja possivel mover o objeto
+
+
+//Menu button da navbar tem o link do nosso produto, temos de remover na entrega
