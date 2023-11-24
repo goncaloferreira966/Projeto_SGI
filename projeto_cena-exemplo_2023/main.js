@@ -6,6 +6,11 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js' //novo
 const ABERTA = 1
 const FECHADA = 0
 
+//Data dinamica
+var anoAtual = new Date().getFullYear();
+// Exibe o ano atual na página
+document.getElementById('anoAtual').innerHTML = '© ' + anoAtual + ' La Redoute. Todos os direitos reservados.';
+
 //Apagar
 //abertura gaveta -0.325176 m direção y
 let btn_teste = document.getElementById("buttonCustomise")

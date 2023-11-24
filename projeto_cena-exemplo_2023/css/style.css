@@ -1,6 +1,8 @@
 body {
     background-color: var(--back-color);
     display: flex;
+    flex: 1;
+    height: 1080px;
 }
 
 .container {
@@ -19,6 +21,7 @@ h2,
 h3,
 h3,
 h4,
+h5,
 p {
     color: var(--a-color);
 }
@@ -221,6 +224,7 @@ input:checked+.slider:before {
     float: left;
     width: 27%;
     padding: 10px;
+    height: 756px;
     /* Should be removed. Only for demonstration */
     background-color: var(--menupropertis-color) !important;
     border-radius: 20px;
@@ -330,4 +334,36 @@ input:checked+.slider:before {
     #switchTheme{
         margin-left: 47%;
     }
+}
+
+footer {
+    padding-top: 100px;
+    background-color: var(--menupropertis-color);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: -400px;
+  }
+
+  .payment-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .columnFooter {
+    float: left;
+    width: 23%;
+    padding: 10px;
+    margin-left: 2%;
+}
+
+.linha {
+    content: "";
+    clear: both;
+    padding-top: 20px;
 }
