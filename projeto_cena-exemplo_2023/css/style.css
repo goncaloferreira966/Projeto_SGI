@@ -267,18 +267,38 @@ footer {
 }
 
 
-body::-webkit-scrollbar { 
-    width: 20px;               /* width of the entire scrollbar */ 
-  } 
-   
-  body::-webkit-scrollbar-track { 
-    background: transparent;        /* color of the tracking area */ 
-  } 
-   
-  body::-webkit-scrollbar-thumb { 
-    background-color: var(--menupropertis-color);   /* color of the scroll thumb */ 
-    border: 3px solid transparent;  /* creates padding around scroll thumb */ 
-  } 
+body::-webkit-scrollbar {
+    width: 20px;
+    /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: transparent;
+    /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--menupropertis-color);
+    /* color of the scroll thumb */
+    border: 3px solid transparent;
+    /* creates padding around scroll thumb */
+}
+
+#btnBackToTop {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--a-color);
+    cursor: pointer;
+    padding-right: 5px;
+    border-radius: 40px;
+}
 
 
 
@@ -306,7 +326,8 @@ body::-webkit-scrollbar {
     .navbar {
         font-size: 1.5rem !important;
     }
-    #switchTheme{
+
+    #switchTheme {
         margin-right: 10px;
     }
 
@@ -345,15 +366,17 @@ body::-webkit-scrollbar {
         margin-left: 10vw;
         font-size: 2rem;
     }
-    
+
 
     .navbar {
         font-size: 1.5rem !important;
     }
-    #switchTheme{
+
+    #switchTheme {
         margin-right: 10px;
     }
-    #myNavbar{
+
+    #myNavbar {
         margin-top: 70px;
     }
 
@@ -396,13 +419,13 @@ body::-webkit-scrollbar {
         font-size: 1.5rem !important;
     }
 
-    #myNavbar{
+    #myNavbar {
         margin-top: 70px;
     }
 
-    #switchTheme{
+    #switchTheme {
         margin-right: 10px;
-    } 
+    }
 
     footer {
         padding-top: 100px;
@@ -431,11 +454,11 @@ body::-webkit-scrollbar {
         padding: 0;
     }
 
-    #myNavbar{
-     text-align: center;
+    #myNavbar {
+        text-align: center;
     }
 
-    #switchTheme{
+    #switchTheme {
         margin-left: 47%;
     }
 
@@ -450,5 +473,5 @@ body::-webkit-scrollbar {
         bottom: 0;
         width: 100%;
         margin-bottom: -1800px;
-    }   
+    }
 }
