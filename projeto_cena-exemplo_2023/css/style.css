@@ -266,6 +266,22 @@ footer {
     gap: 20px;
 }
 
+
+body::-webkit-scrollbar { 
+    width: 20px;               /* width of the entire scrollbar */ 
+  } 
+   
+  body::-webkit-scrollbar-track { 
+    background: transparent;        /* color of the tracking area */ 
+  } 
+   
+  body::-webkit-scrollbar-thumb { 
+    background-color: var(--menupropertis-color);   /* color of the scroll thumb */ 
+    border: 3px solid transparent;  /* creates padding around scroll thumb */ 
+  } 
+
+
+
 @media screen and (max-width: 2000px) {
     .container {
         width: 100%;
@@ -434,7 +450,5 @@ footer {
         bottom: 0;
         width: 100%;
         margin-bottom: -1800px;
-    }
-
-    
+    }   
 }
