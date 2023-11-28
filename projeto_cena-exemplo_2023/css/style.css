@@ -157,6 +157,7 @@ input:checked+.slider:before {
     --a-color: black;
     --icons-color: invert(0%);
     --menupropertis-color: rgb(227, 226, 226);
+    --backtotop-color: rgb(149, 149, 149);
 }
 
 
@@ -167,6 +168,7 @@ input:checked+.slider:before {
     --a-color: #ffffff;
     --icons-color: invert(100%);
     --menupropertis-color: rgb(83, 82, 82);
+    --backtotop-color: black;
 }
 
 
@@ -222,7 +224,7 @@ input:checked+.slider:before {
 .column2 {
     margin-top: 150px;
     float: left;
-    width: 27%;
+    width: 29%;
     padding: 10px;
     height: 756px;
     /* Should be removed. Only for demonstration */
@@ -298,6 +300,27 @@ body::-webkit-scrollbar-thumb {
     cursor: pointer;
     padding-right: 5px;
     border-radius: 40px;
+    width: 40px;
+    height: 40px;
+}
+
+
+#btnBackToTop:hover {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: var(--backtotop-color);
+    color: var(--a-color);
+    cursor: pointer;
+    padding-right: 5px;
+    border-radius: 40px;
+    width: 40px;
+    height: 40px;
 }
 
 
@@ -438,6 +461,17 @@ body::-webkit-scrollbar-thumb {
         width: 100%;
         margin-bottom: -1300px;
     }
+
+    .column2 {
+        margin-top: 200px;
+        float: left;
+        width: 29%;
+        padding: 10px;
+        height: 856px;
+        /* Should be removed. Only for demonstration */
+        background-color: var(--menupropertis-color) !important;
+        border-radius: 20px;
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -465,7 +499,7 @@ body::-webkit-scrollbar-thumb {
 
     footer {
         padding-top: 100px;
-        background-color: var(--menupropertis-color);
+        background-color:  var(--menupropertis-color) !important;
         color: #fff;
         padding: 10px;
         text-align: center;
@@ -473,5 +507,16 @@ body::-webkit-scrollbar-thumb {
         bottom: 0;
         width: 100%;
         margin-bottom: -1800px;
+    }
+
+    .column2 {
+        margin-top: 150px;
+        float: left;
+        width: 29%;
+        padding: 10px;
+        height: 1056px;
+        /* Should be removed. Only for demonstration */
+        background-color: var(--menupropertis-color) !important;
+        border-radius: 20px;
     }
 }
