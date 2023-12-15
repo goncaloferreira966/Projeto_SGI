@@ -50,20 +50,31 @@ btnMaterial1.addEventListener("click", function(){
 let relogio = new THREE.Clock();
 let misturador = new THREE.AnimationMixer(cena)
 
-//Gaveta Esquerda
-let acaoGEsq
-let clipeGEsq
-let estadoGEsq = FECHADA
-
 //Gaveta Direita
 let acaoGDir
 let clipeGDir
 let estadoGDir = FECHADA
 
+//Gaveta Esquerda
+let acaoGEsq
+let clipeGEsq
+let estadoGEsq = FECHADA
+
+//Porta Direita
+let acaoPDir
+let clipePDir
+let estadoPDir = FECHADA
+
+//Porta Esquerda
+let acaoPEsq
+let clipePEsq
+let estadoPEsq = FECHADA
+
+
 /* geometria...  (novo)*/
 let carregador = new GLTFLoader()
 carregador.load(
-    'model/vintageDesk.gltf', 
+    'model/vintageDesk.gltf',
     function ( gltf ) {
 
         // -------- Inicialização animações --------
@@ -74,6 +85,14 @@ carregador.load(
         //Gaveta esquerda
         clipeGEsq = THREE.AnimationClip.findByName(gltf.animations, 'Gaveta_LAction')
         acaoGEsq = misturador.clipAction(clipeGEsq)
+
+        //Porta direita
+        clipePDir = THREE.AnimationClip.findByName(gltf.animations, 'Porta_RAction')
+        acaoPDir = misturador.clipAction(clipePDir)
+
+        //Porta esquerda
+        clipePEsq = THREE.AnimationClip.findByName(gltf.animations, 'Porta_LAction')
+        acaoPEsq = misturador.clipAction(clipePEsq)
 
         cena.add(gltf.scene) //Adicionar movimentos à cena
 
@@ -93,6 +112,20 @@ carregador.load(
             acaoGEsq.play()                    //Começar a animação
             acaoGEsq.paused = false            //Defenir que a animação está em andamento
 
+            //Acao porta direita
+            acaoPDir.timeScale = estadoPDir === FECHADA ? (estadoPDir = ABERTA, 1) : (estadoPDir = FECHADA, -1); //Defenir acao da gaveta esquerda (Abrir/Fechar)
+            acaoPDir.clampWhenFinished = true; //Pausar a animação quando chegar ao fim
+            acaoPDir.setLoop(THREE.LoopOnce);  //Fazer a animação só uma vez
+            acaoPDir.play()                    //Começar a animação
+            acaoPDir.paused = false            //Defenir que a animação está em andamento
+
+            //Acao porta esquerda
+            acaoPEsq.timeScale = estadoPEsq === FECHADA ? (estadoPEsq = ABERTA, 1) : (estadoPEsq = FECHADA, -1); //Defenir acao da gaveta esquerda (Abrir/Fechar)
+            acaoPEsq.clampWhenFinished = true; //Pausar a animação quando chegar ao fim
+            acaoPEsq.setLoop(THREE.LoopOnce);  //Fazer a animação só uma vez
+            acaoPEsq.play()                    //Começar a animação
+            acaoPEsq.paused = false            //Defenir que a animação está em andamento
+            
            if(estadoGDir == 0){
                 document.getElementById("buttonCustomise").innerHTML = `<i id="iDasGavetas" style="font-size: 25px; margin-left: 5px;" class="bi bi-eye-fill"></i> Abrir Gavetas`
             }
