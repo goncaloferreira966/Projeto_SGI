@@ -93,27 +93,25 @@
                     style="border-radius: 50px;">
             </div>
         </div>
-        <hr>
         <div style="margin-top: 20px;">
             <h4>Escolha uma Cor Ambiente:</h4>
             <div style="text-align: center;">
-                <input id="colorChoice" style="width: 100%; height: 40px;" type="color" value="#ffffff">
+                <input id="colorChoice" style="width: 100%; height: 40px;" type="color" value="#ffffff" type="color" list="presets">
+
+                <input type="range" value="50" min="0" max="100" id="range"/>
+
             </div>
         </div>
-        <hr>
         <!--Abrir e fechar gavetas-->
-        <h4>Interação com as Gavetas:</h4>
         <div style="text-align: left;margin-top: 20px;">
             <button type="button" id="buttonCustomise" class="btn" style="width: 100%; font-size: medium;"><i
                     id="iDasGavetas" style="font-size: 25px; margin-left: 5px;" class="bi bi-eye-fill"></i> Abrir
                 Gavetas</button>
         </div>
-        <hr>
         <!--Preço e carrinho-->
         <div style="text-align: left;margin-top: 20px;">
             <h4 style="text-decoration: line-through; display: block;">799€</h3>
                 <h3 style=" color: red; display: block;">599€ -25%</h3>
-                <img style="max-width: 100%; border-radius: 25px;" src="./model/imagemDesconto.png">
                 <button type="button" id="btnCart" class="btn"
                     style="width: 100%; font-size: medium; margin-top: 10px;"><i
                         style="font-size: 25px; margin-left: 5px;" class="bi-bag"></i> Juntar
@@ -199,3 +197,17 @@
         document.documentElement.scrollTop = 0;
     }
 </script>
+
+<style>
+    [dir="rtl"] input[type="range"] {
+  /* Used to be gradient color, the current progress */
+  background: #ff4500;
+
+  /* Used to be background color, the track */
+  background-image: linear-gradient(#fff, #fff);
+
+  /* 30% is the difference between the max and the current value (100 - 70) */
+  background-size: 30% 100%;
+  background-repeat: no-repeat;
+}
+</style>
