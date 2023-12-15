@@ -76,6 +76,8 @@ let carregador = new GLTFLoader()
 carregador.load(
     'model/vintageDesk.gltf',
     function ( gltf ) {
+        
+        cena.add(gltf.scene)
 
         // -------- Inicialização animações --------
         //Gaveta direita
@@ -94,7 +96,68 @@ carregador.load(
         clipePEsq = THREE.AnimationClip.findByName(gltf.animations, 'Porta_LAction')
         acaoPEsq = misturador.clipAction(clipePEsq)
 
-        cena.add(gltf.scene) //Adicionar movimentos à cena
+        // -------- Raycaster --------
+        let raycaster = new THREE.Raycaster()
+        let rato = new THREE.Vector2()
+        let candidatos = []
+
+        candidatos.push(cena.getObjectByName('Scene'));
+
+        container.onclick = function(evento) {
+    
+            const rect = renderer.domElement.getBoundingClientRect();
+            rato.x = ((evento.clientX - rect.left) / (rect.right - rect.left)) * 2 - 1;
+            rato.y = - ((evento.clientY - rect.top) / (rect.bottom - rect.top)) * 2 + 1;
+            
+            // invocar raycast
+            executeRaycast();
+        }
+        
+        function executeRaycast() {
+        
+            raycaster.setFromCamera(rato, camara)
+            let intersetados = raycaster.intersectObjects(candidatos)
+            
+            if(intersetados.length > 0)
+            {
+                switch(intersetados[0].object.parent.name){
+                    case "Gaveta_R":
+                        //Acao gaveta direita
+                        acaoGDir.timeScale = estadoGDir === FECHADA ? (estadoGDir = ABERTA, 1) : (estadoGDir = FECHADA, -1); //Defenir acao da gaveta esquerda (Abrir/Fechar)
+                        acaoGDir.clampWhenFinished = true; //Pausar a animação quando chegar ao fim
+                        acaoGDir.setLoop(THREE.LoopOnce);  //Fazer a animação só uma vez
+                        acaoGDir.play()                    //Começar a animação
+                        acaoGDir.paused = false            //Defenir que a animação está em andamento
+                    break;
+                    case "Gaveta_L":
+                        //Acao gaveta esquerda
+                        acaoGEsq.timeScale = estadoGEsq === FECHADA ? (estadoGEsq = ABERTA, 1) : (estadoGEsq = FECHADA, -1); //Defenir acao da gaveta esquerda (Abrir/Fechar)
+                        acaoGEsq.clampWhenFinished = true; //Pausar a animação quando chegar ao fim
+                        acaoGEsq.setLoop(THREE.LoopOnce);  //Fazer a animação só uma vez
+                        acaoGEsq.play()                    //Começar a animação
+                        acaoGEsq.paused = false            //Defenir que a animação está em andamento
+                    break;
+                    case "Porta_R":
+                        //Acao porta direita
+                        acaoPDir.timeScale = estadoPDir === FECHADA ? (estadoPDir = ABERTA, 1) : (estadoPDir = FECHADA, -1); //Defenir acao da gaveta esquerda (Abrir/Fechar)
+                        acaoPDir.clampWhenFinished = true; //Pausar a animação quando chegar ao fim
+                        acaoPDir.setLoop(THREE.LoopOnce);  //Fazer a animação só uma vez
+                        acaoPDir.play()                    //Começar a animação
+                        acaoPDir.paused = false            //Defenir que a animação está em andamento
+                    break;
+                    case "Porta_L":
+                        //Acao porta esquerda
+                        acaoPEsq.timeScale = estadoPEsq === FECHADA ? (estadoPEsq = ABERTA, 1) : (estadoPEsq = FECHADA, -1); //Defenir acao da gaveta esquerda (Abrir/Fechar)
+                        acaoPEsq.clampWhenFinished = true; //Pausar a animação quando chegar ao fim
+                        acaoPEsq.setLoop(THREE.LoopOnce);  //Fazer a animação só uma vez
+                        acaoPEsq.play()                    //Começar a animação
+                        acaoPEsq.paused = false            //Defenir que a animação está em andamento
+                    break;
+                }
+
+                renderizar()
+            }
+        }
 
         btn_teste.addEventListener("click", function(){
 
@@ -241,13 +304,15 @@ function luzes(cena) {
 
 }
 
-
 //Remove a cor de fundo do render e da cena
 renderer.setClearColor( 0xffffff, 0);
 
 luzes(cena)
 animar()
 
+function renderizar() {
+    renderer.render(cena, camara)
+}
 
 // -------- Ideias --------
 
