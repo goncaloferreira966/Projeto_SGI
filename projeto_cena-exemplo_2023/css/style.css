@@ -335,7 +335,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-
 @media screen and (max-width: 2000px) {
     .container {
         width: 100%;

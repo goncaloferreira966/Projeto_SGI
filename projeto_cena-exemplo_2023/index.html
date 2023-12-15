@@ -81,24 +81,23 @@
         <h2>Mesa Vintage</h2>
         <!--Cor-->
         <div style="margin-top: 20px;">
-            <h4>Escolha um Material:</h4>
             <div style="text-align: center;">
-                <input type="image" id="btnMaterial1" src="./model/materials/Wicker2_Color_1K.png" width="40px"
+                <input type="image" id="btnMaterial1" src="./model/materials/Wicker2_Color_1K.png" width="60px"
                     style="border-radius: 50px;">
-                <input type="image" id="btnMaterial2" src="./model/materials/Wicker2_Normal_1K.png" width="40px"
+                <input type="image" id="btnMaterial2" src="./model/materials/Wicker2_Normal_1K.png" width="60px"
                     style="border-radius: 50px;">
-                <input type="image" id="btnMaterial3" src="./model/materials/Wood_Color_2K.png" width="40px"
+                <input type="image" id="btnMaterial3" src="./model/materials/Wood_Color_2K.png" width="60px"
                     style="border-radius: 50px;">
-                <input type="image" id="btnMaterial4" src="./model/materials/Wood_Normal_2K.png" width="40px"
+                <input type="image" id="btnMaterial4" src="./model/materials/Wood_Normal_2K.png" width="60px"
                     style="border-radius: 50px;">
             </div>
         </div>
         <div style="margin-top: 20px;">
             <h4>Escolha uma Cor Ambiente:</h4>
             <div style="text-align: center;">
-                <input id="colorChoice" style="width: 100%; height: 40px;" type="color" value="#ffffff" type="color" list="presets">
+                <input  type="range" value="50" min="0" max="100" id="range"/>
+                <input hidden disabled id="colorChoice" style="width: 100%; height: 40px;" type="color" value="#ffffff" type="color" list="presets">
 
-                <input type="range" value="50" min="0" max="100" id="range"/>
 
             </div>
         </div>
@@ -198,16 +197,128 @@
     }
 </script>
 
+<script>
+    let range = document.getElementById('range')
+    let colorPicker = document.getElementById("colorChoice")
+
+    range.addEventListener("change", function () {
+        if(range.value >=0 & range.value<10){
+            colorPicker.value="#85c1e9"
+        }
+        if(range.value >=10 & range.value<20){
+            colorPicker.value="#b1d7f1"
+        }
+        if(range.value >=20 & range.value<30){
+            colorPicker.value="#d7eaf8"
+        }
+        if(range.value >=40 & range.value<50){
+            colorPicker.value="#eef6fc"
+        }
+        if(range.value >=50 & range.value<60){
+            colorPicker.value="#fef9e7"
+        }
+        if(range.value >=60 & range.value<70){
+            colorPicker.value="#fcf3cf"
+        }
+        if(range.value >=70 & range.value<80){
+            colorPicker.value="#f9e79f"
+        }
+        if(range.value >=80 & range.value<90){
+            colorPicker.value="#f7dc6f"
+        }
+        if(range.value >=90 & range.value<=100){
+            colorPicker.value="#f4d03f"
+        }
+    })
+
+</script>
+
 <style>
-    [dir="rtl"] input[type="range"] {
-  /* Used to be gradient color, the current progress */
-  background: #ff4500;
-
-  /* Used to be background color, the track */
-  background-image: linear-gradient(#fff, #fff);
-
-  /* 30% is the difference between the max and the current value (100 - 70) */
-  background-size: 30% 100%;
-  background-repeat: no-repeat;
+    input[type=range] {
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
 }
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 20px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+background: linear-gradient(90deg, #85c1e9 0%, #eef6fc 50%, #f4d03f 100%);
+  border: 0px solid #000101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border: 0px solid #000000;
+  height: 28px;
+  width: 39px;
+  border-radius: 7px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -3.6px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+background: linear-gradient(90deg, #85c1e9 0%, eef6fc 50%, #f4d03f 100%);
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 12.8px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+background: linear-gradient(90deg, #85c1e9 0%, eef6fc 50%, #f4d03f 100%);
+  border-radius: 25px;
+  border: 0px solid #000101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border: 0px solid #000000;
+  height: 20px;
+  width: 39px;
+  border-radius: 7px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 12.8px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 39px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+background: linear-gradient(90deg, #85c1e9 0%, eef6fc 50%, #f4d03f 100%);
+  border: 0px solid #000101;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+background: linear-gradient(90deg, #85c1e9 0%, eef6fc 50%, #f4d03f 100%);
+  border: 0px solid #000101;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border: 0px solid #000000;
+  height: 20px;
+  width: 39px;
+  border-radius: 7px;
+  background: #65001c;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+background: linear-gradient(90deg, #85c1e9 0%, #eef6fc 50%, #f4d03f 100%);
+}
+input[type=range]:focus::-ms-fill-upper {
+background: linear-gradient(90deg, #85c1e9 0%, #eef6fc 50%, #f4d03f 100%);
+}
+
 </style>

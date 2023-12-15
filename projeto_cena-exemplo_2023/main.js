@@ -14,6 +14,7 @@ document.getElementById('anoAtual').innerHTML = '© ' + anoAtual + ' La Redoute.
 //Apagar
 //abertura gaveta -0.325176 m direção y
 let btn_teste = document.getElementById("buttonCustomise")
+let range = document.getElementById('range')
 
 /* cena... */
 let cena = new THREE.Scene()
@@ -21,7 +22,7 @@ let colorPicker = document.getElementById("colorChoice")
 let cor = colorPicker.value 
 
 //Função para obter a cor do input type color
-colorPicker.addEventListener("change", function () {
+range.addEventListener("change", function () {
     cor = document.getElementById("colorChoice").value
     luzes(cena)
     animar();
