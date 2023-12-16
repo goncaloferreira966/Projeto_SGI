@@ -210,32 +210,11 @@ input:checked+.slider:before {
 }
 
 
-/* Create two equal columns that floats next to each other */
-.column {
-    margin-top: 150px;
-    float: left;
-    width: 70%;
-    padding: 10px;
-    height: 70vh;
-    /* Should be removed. Only for demonstration */
-    border-radius: 20px;
-}
-
-.column2 {
-    margin-top: 150px;
-    float: left;
-    width: 29%;
-    padding: 10px;
-    height: 756px;
-    /* Should be removed. Only for demonstration */
-    background-color: var(--menupropertis-color) !important;
-    border-radius: 20px;
-}
 
 #buttonCustomise,
 #btnCart {
-    color: var(--secondary-color) !important;
-    background-color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
+    background-color: var(--secondary-color) !important;
     border-radius: 5px;
 }
 
@@ -316,24 +295,22 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-#btnBackToTop:hover {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    z-index: 99;
-    font-size: 18px;
-    border: none;
-    outline: none;
-    background-color: var(--backtotop-color);
-    color: var(--a-color);
-    cursor: pointer;
-    padding-right: 5px;
-    border-radius: 40px;
-    width: 40px;
-    height: 40px;
+
+footer {
+    padding-top: 100px;
+    background-color: var(--menupropertis-color);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: -1300px;
 }
 
+#contentorHome{
+    margin-top: 120px;
+}
 
 
 @media screen and (max-width: 2000px) {
@@ -374,10 +351,160 @@ body::-webkit-scrollbar-thumb {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -500px;
+        margin-bottom: -1100px;
     }
+
+    #contentorHome{
+        margin-top: 950px;
+    }
+    
 }
 
+@media screen and (max-width: 1850px) {
+    .container {
+        width: 100%;
+        text-align: center;
+    }
+
+    body {
+        align-items: center;
+        text-align: center;
+    }
+
+    .tab button {
+        padding: 14px 16px;
+    }
+
+    .navbar-brand {
+        margin-top: -0.7vh;
+        margin-left: 10vw;
+        font-size: 2rem;
+    }
+
+    .navbar {
+        font-size: 1.5rem !important;
+    }
+
+    #switchTheme {
+        margin-right: 10px;
+    }
+
+    footer {
+        padding-top: 100px;
+        background-color: var(--menupropertis-color);
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin-bottom: -1100px;
+    }
+
+    #contentorHome{
+        margin-top: 800px;
+    }
+    
+}
+
+@media screen and (max-width: 1700px) {
+    .container {
+        width: 100%;
+        text-align: center;
+    }
+
+    body {
+        align-items: center;
+        text-align: center;
+    }
+
+    .tab button {
+        padding: 14px 16px;
+    }
+
+    .navbar-brand {
+        margin-top: -0.7vh;
+        margin-left: 10vw;
+        font-size: 2rem;
+    }
+
+    .navbar {
+        font-size: 1.5rem !important;
+    }
+
+    #switchTheme {
+        margin-right: 10px;
+    }
+
+    footer {
+        padding-top: 100px;
+        background-color: var(--menupropertis-color);
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin-bottom: -1050px;
+    }
+
+    #contentorHome{
+        margin-top: 600px;
+    }
+    
+}
+
+@media screen and (max-width: 1550px) {
+    .container {
+        width: 100%;
+        text-align: center;
+    }
+
+    body {
+        align-items: center;
+        text-align: center;
+    }
+
+    .tab button {
+        padding: 14px 16px;
+    }
+
+    .navbar-brand {
+        margin-top: -0.7vh;
+        margin-left: 10vw;
+        font-size: 2rem;
+    }
+
+
+    .navbar {
+        font-size: 1.5rem !important;
+    }
+
+    #switchTheme {
+        margin-right: 10px;
+    }
+
+    #myNavbar {
+        margin-top: 70px;
+    }
+
+    footer {
+        padding-top: 100px;
+        background-color: var(--menupropertis-color);
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin-bottom: -1100px;
+    }
+
+    #contentorHome{
+        margin-top: 700px;
+    }
+    
+}
 
 
 @media screen and (max-width: 1400px) {
@@ -423,8 +550,66 @@ body::-webkit-scrollbar-thumb {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -700px;
+        margin-bottom: -1100px;
     }
+
+    #contentorHome{
+        margin-top: 550px;
+    }
+    
+}
+
+
+@media screen and (max-width: 1250px) {
+    .container {
+        width: 100%;
+        text-align: center;
+    }
+
+    body {
+        align-items: center;
+        text-align: center;
+    }
+
+    .tab button {
+        padding: 14px 16px;
+    }
+
+    .navbar-brand {
+        margin-top: -0.7vh;
+        margin-left: 10vw;
+        font-size: 2rem;
+    }
+
+
+    .navbar {
+        font-size: 1.5rem !important;
+    }
+
+    #switchTheme {
+        margin-right: 10px;
+    }
+
+    #myNavbar {
+        margin-top: 70px;
+    }
+
+    footer {
+        padding-top: 100px;
+        background-color: var(--menupropertis-color);
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin-bottom: -1600px;
+    }
+
+    #contentorHome{
+        margin-top: 1050px;
+    }
+    
 }
 
 @media screen and (max-width: 1115px) {
@@ -470,19 +655,65 @@ body::-webkit-scrollbar-thumb {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -1300px;
+        margin-bottom: -5100px;
     }
 
-    .column2 {
-        margin-top: 200px;
-        float: left;
-        width: 29%;
-        padding: 10px;
-        height: 856px;
-        /* Should be removed. Only for demonstration */
-        background-color: var(--menupropertis-color) !important;
-        border-radius: 20px;
+    #contentorHome{
+        margin-top: 4100px;
     }
+    
+}
+
+@media screen and (max-width: 850px) {
+
+    .container {
+        width: 100%;
+        text-align: center;
+    }
+
+    body {
+        align-items: center;
+        text-align: center;
+    }
+
+    .tab button {
+        padding: 14px 16px;
+    }
+
+    .navbar-brand {
+        margin-top: -0.7vh;
+        margin-left: 10vw;
+        font-size: 2rem;
+    }
+
+    .navbar {
+        font-size: 1.5rem !important;
+    }
+
+    #myNavbar {
+        margin-top: 70px;
+    }
+
+    #switchTheme {
+        margin-right: 10px;
+    }
+
+    footer {
+        padding-top: 100px;
+        background-color: var(--menupropertis-color);
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin-bottom: -4600px;
+    }
+
+    #contentorHome{
+        margin-top: 3500px;
+    }
+    
 }
 
 @media screen and (max-width: 767px) {
@@ -517,17 +748,94 @@ body::-webkit-scrollbar-thumb {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -1800px;
+        margin-bottom: -4150px;
     }
 
-    .column2 {
-        margin-top: 150px;
-        float: left;
-        width: 29%;
-        padding: 10px;
-        height: 1056px;
-        /* Should be removed. Only for demonstration */
-        background-color: var(--menupropertis-color) !important;
-        border-radius: 20px;
+    #contentorHome{
+        margin-top: 2950px;
     }
+    
+}
+
+@media screen and (max-width: 625px) {
+
+    .container {
+        width: 95%;
+        text-align: center;
+    }
+
+    #barraPesquisa {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    #myNavbar {
+        text-align: center;
+    }
+
+    #switchTheme {
+        margin-left: 47%;
+    }
+
+
+    footer {
+        padding-top: 100px;
+        background-color:  var(--menupropertis-color) !important;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin-bottom: -3680px;
+    }
+
+    #contentorHome{
+        margin-top: 2350px;
+    }
+    
+}
+
+
+@media screen and (max-width: 500px) {
+
+    .container {
+        width: 95%;
+        text-align: center;
+    }
+
+    #barraPesquisa {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    #myNavbar {
+        text-align: center;
+    }
+
+    #switchTheme {
+        margin-left: 47%;
+    }
+
+
+    footer {
+        padding-top: 100px;
+        background-color:  var(--menupropertis-color) !important;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin-bottom: -3350px;
+    }
+
+    #contentorHome{
+        margin-top: 2000px;
+    }
+    
 }
