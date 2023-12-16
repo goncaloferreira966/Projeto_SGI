@@ -236,7 +236,7 @@ input:checked+.slider:before {
 #btnCart {
     color: var(--secondary-color) !important;
     background-color: var(--primary-color) !important;
-    border-radius: 25px;
+    border-radius: 5px;
 }
 
 #buttonCustomise:hover {
@@ -252,12 +252,12 @@ input:checked+.slider:before {
 #btnDetails{
     color: var(--secondary-color) !important;
     background-color: rgb(240, 76, 58) !important;
-    border-radius: 25px;
+    border-radius: 5px;
 }
 #btnDetails:hover{
     color: var(--secondary-color) !important;
     background-color: var(--primary-color) !important;
-    border-radius: 25px;
+    border-radius: 5px;
 }
 
 footer {
