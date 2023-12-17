@@ -195,25 +195,64 @@ carregador.load(
         const objetoPortaL = cena.getObjectByName('Porta_L');
         const objetoPes = cena.getObjectByName('Pés');
         const objetoNicho = cena.getObjectByName('Nicho');
+        
+        const defaultMaterial = cena.getObjectByName('Tampo').material;
 
-        //Materiais
-        var texturaMadeiraEscura = new THREE.TextureLoader().load('model/materials/MadeiraEscura/madeiraEscura.png');
-        var texturaDisplacement = new THREE.TextureLoader().load('model/materials/MadeiraEscura/Wood051_1K-PNG_Displacement.png');
-        var texturaNormal = new THREE.TextureLoader().load('model/materials/MadeiraEscura/Wood051_1K-PNG_NormalDX.png');
-        var texturaRoughness = new THREE.TextureLoader().load('model/materials/MadeiraEscura/Wood051_1K-PNG_Roughness.png');
+        //Materiais -> https://ambientcg.com/list?type=Material,Atlas,Decal
+        var texturaMEscura = new THREE.TextureLoader().load('model/materials/MadeiraEscura/Wood077_4K-PNG_Color.png');
+        var texturaDisplacementMEscura = new THREE.TextureLoader().load('model/materials/MadeiraEscura/Wood051_1K-PNG_Displacement.png');
+        var texturaNormalMEscura = new THREE.TextureLoader().load('model/materials/MadeiraEscura/Wood051_1K-PNG_NormalDX.png');
+        var texturaRoughnessMEscura = new THREE.TextureLoader().load('model/materials/MadeiraEscura/Wood051_1K-PNG_Roughness.png');
 
         var materialMadeiraEscura = new THREE.MeshPhysicalMaterial({
-            map: texturaMadeiraEscura,
-            displacementMap: texturaDisplacement,
+            map: texturaMEscura,
+            displacementMap: texturaDisplacementMEscura,
             displacementScale: 0,
-            normalMap: texturaNormal,
-            roughnessMap: texturaRoughness,
-            roughness: 0.5,  // Ajuste conforme necessário
-            //metalness: 0.8,  // Ajuste conforme necessário
+            normalMap: texturaNormalMEscura,
+            roughnessMap: texturaRoughnessMEscura,
+            roughness: 0,  
+            metalness: 0.85,  
             transparent: true,
         });
 
+        //Madeira Default
         document.getElementById('btnMaterial1').addEventListener("click", function(){
+
+            objetoTampo.material = defaultMaterial;
+            objetoTampo2.material = defaultMaterial;
+            objetoPortaR.material = defaultMaterial;
+            objetoPortaL.material = defaultMaterial;
+            objetoPes.material = defaultMaterial;
+            
+            if (objetoNicho instanceof THREE.Group) {
+                objetoNicho.children.forEach((child) => {
+                    if (child instanceof THREE.Mesh) {
+                        child.material = defaultMaterial;
+                    }
+                });
+            }
+
+            if (objetoGavetaR instanceof THREE.Group) {
+                objetoGavetaR.children.forEach((child) => {
+                    if (child instanceof THREE.Mesh) {
+                        child.material = defaultMaterial;
+                    }
+                });
+            }
+
+            if (objetoGavetaL instanceof THREE.Group) {
+                objetoGavetaL.children.forEach((child) => {
+                    if (child instanceof THREE.Mesh) {
+                        child.material = defaultMaterial;
+                    }
+                });
+            }
+
+            animar();
+        })
+
+        //Madeira Escura
+        document.getElementById('btnMaterial2').addEventListener("click", function(){
 
             objetoTampo.material = materialMadeiraEscura;
             objetoTampo2.material = materialMadeiraEscura;
@@ -271,7 +310,7 @@ carregador.load(
 )
 
 /* camara.. */
-let camara = new THREE.PerspectiveCamera( 32, (window.innerWidth  / window.innerHeight), 0.01, 1000 )
+let camara = new THREE.PerspectiveCamera( 45, (window.innerWidth  / window.innerHeight), 0.01, 1000 )
 camara.position.set(3,2,3)
 
 /* container... */
