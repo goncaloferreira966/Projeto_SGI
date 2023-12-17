@@ -221,7 +221,7 @@ carregador.load(
             normalMap: texturaNormal2,
             roughnessMap: texturaRoughness2,
             roughness: 0,  
-            metalness: 0.4,  
+            metalness: 0.2,  
             transparent: true,
             color: new THREE.Color(0x5C4033)
         });
@@ -233,7 +233,7 @@ carregador.load(
             normalMap: texturaNormal3,
             roughnessMap: texturaRoughness3,
             roughness: 0,    //(0 indica uma superfície totalmente lisa) (1 indica uma superfície totalmente áspera)
-            metalness: 0.63,  //(0 indica um material não metálico) (1 indica um material totalmente metálico.)
+            metalness: 0.65,  //(0 indica um material não metálico) (1 indica um material totalmente metálico.)
             transparent: true,
             color: new THREE.Color(0xE9DFC7)
         }); 
@@ -413,8 +413,8 @@ carregador.load(
 )
 
 /* camara.. */
-let camara = new THREE.PerspectiveCamera( 37.5, (window.innerWidth  / window.innerHeight), 0.01, 1000 )
-camara.position.set(3,2,3)
+let camara = new THREE.PerspectiveCamera( 37.5, (window.innerWidth  / window.innerHeight), 0.01, 10)
+camara.position.set(2,1,2)
 
 /* container... */
 let container = document.getElementById('container')
@@ -449,7 +449,7 @@ container.appendChild(renderer.domElement);
 //Controlar o ZOOM
 let controls = new OrbitControls( camara, renderer.domElement ) // sem o THREE.
 controls.minDistance = 3;//distancia minima !!!!!!Colocar 4 para o objeto nao sair do canvas
-controls.maxDistance = 5;//distancia maxima
+controls.maxDistance = 4.5;//distancia maxima
 controls.target.set(0,0.2,0); //Colocar o ponto foco
 
 //Prevenir o drag/mover o objeto para fora do canvas
