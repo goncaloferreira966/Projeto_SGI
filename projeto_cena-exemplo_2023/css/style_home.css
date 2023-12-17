@@ -216,6 +216,7 @@ input:checked+.slider:before {
     color: var(--primary-color) !important;
     background-color: var(--secondary-color) !important;
     border-radius: 5px;
+    margin-bottom: 70px;
 }
 
 #buttonCustomise:hover {
@@ -305,7 +306,7 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    margin-bottom: -1300px;
+    margin-bottom: -1350px;
 }
 
 #contentorHome{
@@ -351,11 +352,11 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -1100px;
+        margin-bottom: -1160px;
     }
 
     #contentorHome{
-        margin-top: 950px;
+        margin-top: 1050px;
     }
     
 }
@@ -398,11 +399,11 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -1100px;
+        margin-bottom: -1150px;
     }
 
     #contentorHome{
-        margin-top: 800px;
+        margin-top: 900px;
     }
     
 }
@@ -497,11 +498,11 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -1100px;
+        margin-bottom: -1150px;
     }
 
     #contentorHome{
-        margin-top: 700px;
+        margin-top: 800px;
     }
     
 }
@@ -554,7 +555,7 @@ footer {
     }
 
     #contentorHome{
-        margin-top: 550px;
+        margin-top: 650px;
     }
     
 }
@@ -603,11 +604,11 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -1600px;
+        margin-bottom: -1650px;
     }
 
     #contentorHome{
-        margin-top: 1050px;
+        margin-top: 1150px;
     }
     
 }
@@ -655,11 +656,11 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -5100px;
+        margin-bottom: -5300px;
     }
 
     #contentorHome{
-        margin-top: 4100px;
+        margin-top: 4390px;
     }
     
 }
@@ -707,11 +708,11 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -4600px;
+        margin-bottom: -4900px;
     }
 
     #contentorHome{
-        margin-top: 3500px;
+        margin-top: 3800px;
     }
     
 }
@@ -748,11 +749,11 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -4150px;
+        margin-bottom: -4350px;
     }
 
     #contentorHome{
-        margin-top: 2950px;
+        margin-top: 3200px;
     }
     
 }
@@ -789,11 +790,11 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -3680px;
+        margin-bottom: -3800px;
     }
 
     #contentorHome{
-        margin-top: 2350px;
+        margin-top: 2550px;
     }
     
 }
@@ -831,11 +832,11 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -3350px;
+        margin-bottom: -3550px;
     }
 
     #contentorHome{
-        margin-top: 2000px;
+        margin-top: 2250px;
     }
     
 }
