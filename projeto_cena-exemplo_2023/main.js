@@ -304,12 +304,13 @@ container.appendChild(renderer.domElement);
 //let eixos = new THREE.AxesHelper(3)
 //cena.add( eixos )
 
+
 //Controlar o ZOOM
 let controls = new OrbitControls( camara, renderer.domElement ) // sem o THREE.
 controls.minDistance = 3;//distancia minima !!!!!!Colocar 4 para o objeto nao sair do canvas
 controls.maxDistance = 10;//distancia maxima
 controls.target.set(0,0.2,0); //Colocar o ponto foco
-
+//ontrols.target.set(0, 1, 0);
 //Prevenir o drag/mover o objeto para fora do canvas
 controls.mouseButtons = {
     LEFT: THREE.MOUSE.ROTATE,
@@ -336,10 +337,15 @@ function animar() {
 }
 */
 
+function renderizar() {
+    renderer.render(cena, camara)
+}
+
 function animar() {
     requestAnimationFrame(animar)
     misturador.update( relogio.getDelta() )
     //stats.update()
+    controls.update();
     renderer.render(cena, camara)
 }
 
