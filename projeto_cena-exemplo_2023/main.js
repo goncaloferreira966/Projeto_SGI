@@ -271,7 +271,7 @@ carregador.load(
 )
 
 /* camara.. */
-let camara = new THREE.PerspectiveCamera( 32, (window.innerWidth  / window.innerHeight), 0.01, 1000 )
+let camara = new THREE.PerspectiveCamera( 43, (window.innerWidth  / window.innerHeight), 0.01, 1000 )
 camara.position.set(3,2,3)
 
 /* container... */
@@ -307,8 +307,8 @@ container.appendChild(renderer.domElement);
 //Controlar o ZOOM
 let controls = new OrbitControls( camara, renderer.domElement ) // sem o THREE.
 controls.minDistance = 3;//distancia minima !!!!!!Colocar 4 para o objeto nao sair do canvas
-controls.maxDistance = 5;//distancia maxima
-//controls.target.set(0,0.2,0); //Colocar o ponto foco
+controls.maxDistance = 10;//distancia maxima
+controls.target.set(0,0.2,0); //Colocar o ponto foco
 
 //Prevenir o drag/mover o objeto para fora do canvas
 controls.mouseButtons = {
