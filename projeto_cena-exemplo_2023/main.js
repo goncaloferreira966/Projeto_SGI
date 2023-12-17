@@ -196,35 +196,72 @@ carregador.load(
         const objetoPes = cena.getObjectByName('Pés');
         const objetoNicho = cena.getObjectByName('Nicho');
 
-        //Materiais
-        var texturaMadeiraEscura = new THREE.TextureLoader().load('model/materials/MadeiraEscura/madeiraEscura.png');
-        var texturaDisplacement = new THREE.TextureLoader().load('model/materials/MadeiraEscura/Wood051_1K-PNG_Displacement.png');
-        var texturaNormal = new THREE.TextureLoader().load('model/materials/MadeiraEscura/Wood051_1K-PNG_NormalDX.png');
-        var texturaRoughness = new THREE.TextureLoader().load('model/materials/MadeiraEscura/Wood051_1K-PNG_Roughness.png');
+        //Materiais -> https://ambientcg.com/list?type=Material,Atlas,Decal
+        const defaultMaterial = cena.getObjectByName('Tampo').material;
+        
+        var textura2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Color.png');
+        var texturaDisplacement2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Displacement.png');
+        var texturaNormal2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_NormalDX.png');
+        var texturaRoughness2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Roughness.png');
 
-        var materialMadeiraEscura = new THREE.MeshPhysicalMaterial({
-            map: texturaMadeiraEscura,
-            displacementMap: texturaDisplacement,
+        var textura3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_Color.png');
+        var texturaDisplacement3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_Displacement.png');
+        var texturaNormal3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_NormalDX.png');
+        var texturaRoughness3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_Roughness.png');
+         
+        var textura4 = new THREE.TextureLoader().load('model/materials/4/Wood077_4K-PNG_Color.png');
+        var texturaDisplacement4 = new THREE.TextureLoader().load('model/materials/4/Wood051_1K-PNG_Displacement.png');
+        var texturaNormal4 = new THREE.TextureLoader().load('model/materials/4/Wood051_1K-PNG_NormalDX.png');
+        var texturaRoughness4 = new THREE.TextureLoader().load('model/materials/4/Wood051_1K-PNG_Roughness.png');
+
+        var material2 = new THREE.MeshPhysicalMaterial({
+            map: textura2,
+            displacementMap: texturaDisplacement2,
             displacementScale: 0,
-            normalMap: texturaNormal,
-            roughnessMap: texturaRoughness,
-            roughness: 0.5,  // Ajuste conforme necessário
-            //metalness: 0.8,  // Ajuste conforme necessário
+            normalMap: texturaNormal2,
+            roughnessMap: texturaRoughness2,
+            roughness: 0,  
+            metalness: 0.4,  
             transparent: true,
+            color: new THREE.Color(0x5C4033)
         });
 
+        var material3 = new THREE.MeshPhysicalMaterial({
+            map: textura3,
+            displacementMap: texturaDisplacement3,
+            displacementScale: 0,
+            normalMap: texturaNormal3,
+            roughnessMap: texturaRoughness3,
+            roughness: 0,    //(0 indica uma superfície totalmente lisa) (1 indica uma superfície totalmente áspera)
+            metalness: 0.63,  //(0 indica um material não metálico) (1 indica um material totalmente metálico.)
+            transparent: true,
+            color: new THREE.Color(0xE9DFC7)
+        }); 
+        
+        var material4 = new THREE.MeshPhysicalMaterial({
+            map: textura4,
+            displacementMap: texturaDisplacement4,
+            displacementScale: 0,
+            normalMap: texturaNormal4,
+            roughnessMap: texturaRoughness4,
+            roughness: 0,  
+            metalness: 0.9,  
+            transparent: true
+        });
+
+        //Madeira Default
         document.getElementById('btnMaterial1').addEventListener("click", function(){
 
-            objetoTampo.material = materialMadeiraEscura;
-            objetoTampo2.material = materialMadeiraEscura;
-            objetoPortaR.material = materialMadeiraEscura;
-            objetoPortaL.material = materialMadeiraEscura;
-            objetoPes.material = materialMadeiraEscura;
+            objetoTampo.material = defaultMaterial;
+            objetoTampo2.material = defaultMaterial;
+            objetoPortaR.material = defaultMaterial;
+            objetoPortaL.material = defaultMaterial;
+            objetoPes.material = defaultMaterial;
             
             if (objetoNicho instanceof THREE.Group) {
                 objetoNicho.children.forEach((child) => {
                     if (child instanceof THREE.Mesh) {
-                        child.material = materialMadeiraEscura;
+                        child.material = defaultMaterial;
                     }
                 });
             }
@@ -232,7 +269,7 @@ carregador.load(
             if (objetoGavetaR instanceof THREE.Group) {
                 objetoGavetaR.children.forEach((child) => {
                     if (child instanceof THREE.Mesh) {
-                        child.material = materialMadeiraEscura;
+                        child.material = defaultMaterial;
                     }
                 });
             }
@@ -240,7 +277,112 @@ carregador.load(
             if (objetoGavetaL instanceof THREE.Group) {
                 objetoGavetaL.children.forEach((child) => {
                     if (child instanceof THREE.Mesh) {
-                        child.material = materialMadeiraEscura;
+                        child.material = defaultMaterial;
+                    }
+                });
+            }
+
+            animar();
+        })
+
+        document.getElementById('btnMaterial2').addEventListener("click", function(){
+
+            objetoTampo.material = material2;
+            objetoTampo2.material = material2;
+            objetoPortaR.material = material2;
+            objetoPortaL.material = material2;
+            objetoPes.material = material2;
+            
+            if (objetoNicho instanceof THREE.Group) {
+                objetoNicho.children.forEach((child) => {
+                    if (child instanceof THREE.Mesh) {
+                        child.material = material2;
+                    }
+                });
+            }
+
+            if (objetoGavetaR instanceof THREE.Group) {
+                objetoGavetaR.children.forEach((child) => {
+                    if (child instanceof THREE.Mesh) {
+                        child.material = material2;
+                    }
+                });
+            }
+
+            if (objetoGavetaL instanceof THREE.Group) {
+                objetoGavetaL.children.forEach((child) => {
+                    if (child instanceof THREE.Mesh) {
+                        child.material = material2;
+                    }
+                });
+            }
+
+            animar();
+        })
+
+        document.getElementById('btnMaterial3').addEventListener("click", function(){
+
+            objetoTampo.material = material3;
+            objetoTampo2.material = material3;
+            objetoPortaR.material = material3;
+            objetoPortaL.material = material3;
+            objetoPes.material = material3;
+            
+            if (objetoNicho instanceof THREE.Group) {
+                objetoNicho.children.forEach((child) => {
+                    if (child instanceof THREE.Mesh) {
+                        child.material = material3;
+                    }
+                });
+            }
+
+            if (objetoGavetaR instanceof THREE.Group) {
+                objetoGavetaR.children.forEach((child) => {
+                    if (child instanceof THREE.Mesh) {
+                        child.material = material3;
+                    }
+                });
+            }
+
+            if (objetoGavetaL instanceof THREE.Group) {
+                objetoGavetaL.children.forEach((child) => {
+                    if (child instanceof THREE.Mesh) {
+                        child.material = material3;
+                    }
+                });
+            }
+
+            animar();
+        })
+
+        document.getElementById('btnMaterial4').addEventListener("click", function(){
+
+            objetoTampo.material = material4;
+            objetoTampo2.material = material4;
+            objetoPortaR.material = material4;
+            objetoPortaL.material = material4;
+            objetoPes.material = material4;
+            
+            if (objetoNicho instanceof THREE.Group) {
+                objetoNicho.children.forEach((child) => {
+                    if (child instanceof THREE.Mesh) {
+                        child.material = material4;
+                    }
+                });
+            }
+
+            if (objetoGavetaR instanceof THREE.Group) {
+                objetoGavetaR.children.forEach((child) => {
+                    if (child instanceof THREE.Mesh) {
+                        child.material = material4;
+                    }
+                });
+            }
+
+            if (objetoGavetaL instanceof THREE.Group) {
+                objetoGavetaL.children.forEach((child) => {
+                    if (child instanceof THREE.Mesh) {
+                        child.material = material4;
                     }
                 });
             }
@@ -271,7 +413,7 @@ carregador.load(
 )
 
 /* camara.. */
-let camara = new THREE.PerspectiveCamera( 43, (window.innerWidth  / window.innerHeight), 0.01, 1000 )
+let camara = new THREE.PerspectiveCamera( 37.5, (window.innerWidth  / window.innerHeight), 0.01, 1000 )
 camara.position.set(3,2,3)
 
 /* container... */
@@ -308,7 +450,7 @@ container.appendChild(renderer.domElement);
 let controls = new OrbitControls( camara, renderer.domElement ) // sem o THREE.
 controls.minDistance = 3;//distancia minima !!!!!!Colocar 4 para o objeto nao sair do canvas
 controls.maxDistance = 5;//distancia maxima
-//controls.target.set(0,0.2,0); //Colocar o ponto foco
+controls.target.set(0,0.2,0); //Colocar o ponto foco
 
 //Prevenir o drag/mover o objeto para fora do canvas
 controls.mouseButtons = {
@@ -340,6 +482,7 @@ function animar() {
     requestAnimationFrame(animar)
     misturador.update( relogio.getDelta() )
     //stats.update()
+    controls.update();
     renderer.render(cena, camara)
 }
 
@@ -368,7 +511,7 @@ function luzes(cena) {
     /* directional light */
     const luzDirecional = new THREE.DirectionalLight( cor );
     luzDirecional.position.set( 3, 2, 0 ); //aponta na direção de (0, 0, 0)
-    luzDirecional.intensity = 30
+    luzDirecional.intensity = 15
     cena.add( luzDirecional );
     
     // auxiliar visual
