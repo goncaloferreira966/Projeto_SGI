@@ -12,7 +12,7 @@ body {
 a {
     color: var(--a-color);
     transition: .25s;
-    border-radius: 25px;
+    border-radius: 5px;
     font-size: medium;
 }
 
