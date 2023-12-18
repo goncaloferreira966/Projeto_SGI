@@ -203,7 +203,7 @@ carregador.load(
         var texturaDisplacement2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Displacement.png');
         var texturaNormal2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_NormalDX.png');
         var texturaRoughness2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Roughness.png');
-
+    
         var textura3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_Color.png');
         var texturaDisplacement3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_Displacement.png');
         var texturaNormal3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_NormalDX.png');
@@ -235,7 +235,7 @@ carregador.load(
             roughness: 0,    //(0 indica uma superfície totalmente lisa) (1 indica uma superfície totalmente áspera)
             metalness: 0.65,  //(0 indica um material não metálico) (1 indica um material totalmente metálico.)
             transparent: true,
-            color: new THREE.Color(0xE9DFC7)
+            color: new THREE.Color(0xE7DBBC)
         }); 
         
         var material4 = new THREE.MeshPhysicalMaterial({
@@ -496,6 +496,7 @@ function luzes(cena) {
     });
     /* luzes... */
     const luzAmbiente = new THREE.AmbientLight( "white")
+    luzAmbiente.intensity = 0.5
     cena.add(luzAmbiente)
     
     /* point light */
