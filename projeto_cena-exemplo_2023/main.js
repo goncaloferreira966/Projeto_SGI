@@ -69,6 +69,19 @@ carregador.load(
         
         cena.add(gltf.scene)
 
+        //Objetos
+        const objetoTampo = cena.getObjectByName('Tampo');
+        const objetoTampo2 = cena.getObjectByName('Tampo_2');
+        const objetoGavetaR = cena.getObjectByName('Gaveta_R');
+        const objetoGavetaL = cena.getObjectByName('Gaveta_L');
+        const objetoPortaR = cena.getObjectByName('Porta_R');
+        const objetoPortaL = cena.getObjectByName('Porta_L');
+        const objetoPes = cena.getObjectByName('Pés');
+        const objetoNicho = cena.getObjectByName('Nicho');
+
+        const objetoComputador = cena.getObjectByName('Computador');
+        const objetoPlanta = cena.getObjectByName('Plant');
+
         // -------- Inicialização animações --------
         //Gaveta direita
         clipeGDir = THREE.AnimationClip.findByName(gltf.animations, 'Gaveta_RAction')
@@ -101,6 +114,106 @@ carregador.load(
             
             // invocar raycast
             executeRaycast();
+        }
+        
+        // -------- Raycaster para objetos clickable --------
+        let objetoComMarcaGavetas = objetoNicho
+        let objetoComMarcaPortas = objetoNicho
+        
+        const MaterialDeContornoGavetas = new THREE.MeshBasicMaterial({ 
+            color: 0xffffff, 
+            side: THREE.BackSide,
+            transparent: true,
+            opacity: 0.8
+        });
+
+        const MaterialDeContornoPortas = new THREE.MeshBasicMaterial({ 
+            color: 0xffffff, 
+            side: THREE.BackSide,
+            transparent: true,
+            opacity: 0.8
+        });
+
+        container.onmousemove = function(evento) {
+    
+            const rect = renderer.domElement.getBoundingClientRect();
+            rato.x = ((evento.clientX - rect.left) / (rect.right - rect.left)) * 2 - 1;
+            rato.y = - ((evento.clientY - rect.top) / (rect.bottom - rect.top)) * 2 + 1;
+            
+            raycaster.setFromCamera(rato, camara)
+            let intersetados = raycaster.intersectObjects(candidatos)
+
+            console.clear();
+            
+            if (intersetados.length > 0) {
+            
+                let object = intersetados[0].object;
+                console.log(object.name)
+                if (object.name === "Cube003" || object.name === "Cube021" || object.name === "Cube003_1" || object.name === "Cube021_1") {
+                    
+                    // ObjetoFilho -> ObjetoPai
+                    if(object.name === "Cube003_1" || object.name === "Cube021_1"){
+                        object = object.name === "Cube003_1" ? cena.getObjectByName("Cube003") : cena.getObjectByName("Cube021");
+                    }
+
+                    //Remover contorno das gavetas para caso do rato passar de gaveta -> porta
+                    objetoComMarcaPortas.remove(objetoComMarcaPortas.userData.MeshDeContornoPortas);
+                    objetoComMarcaPortas.userData.MeshDeContornoPortas = null;
+
+                    // Adicionar o contorno apenas se ainda não existir
+                    if (!object.userData.MeshDeContornoGavetas) {
+                        
+                        const MeshDeContornoGavetas = new THREE.Mesh(object.geometry, MaterialDeContornoGavetas);
+                        MeshDeContornoGavetas.scale.set(1, 1, 1.05);
+
+                        object.add(MeshDeContornoGavetas);     
+
+                        object.userData.MeshDeContornoGavetas = MeshDeContornoGavetas;
+                        
+                        objetoComMarcaGavetas = object;
+                    }
+                }
+                else if(object.name === "Cube015_1" || object.name === "Cube019_1"){
+
+                    //Remover contorno das gavetas para caso do rato passar de gaveta -> porta
+                    objetoComMarcaGavetas.remove(objetoComMarcaGavetas.userData.MeshDeContornoGavetas);
+                    objetoComMarcaGavetas.userData.MeshDeContornoGavetas = null;
+
+                    // ObjetoFilho -> ObjetoPai
+                    object = object.name === "Cube015_1" ? cena.getObjectByName("Cube015") : cena.getObjectByName("Cube019");
+                    
+                     // Adicionar o contorno apenas se ainda não existir
+                    if (!object.userData.MeshDeContornoPortas) {
+                    
+                        const MeshDeContornoPortas = new THREE.Mesh(object.geometry, MaterialDeContornoPortas);
+                        MeshDeContornoPortas.scale.set(1, 1.02, 2);
+
+                        object.add(MeshDeContornoPortas);     
+
+                        object.userData.MeshDeContornoPortas = MeshDeContornoPortas;
+                        
+                        objetoComMarcaPortas = object;
+                    }
+                }
+                else
+                {   
+                    // Remover o contorno de todos os objetos se o rato nao estiver em cima de nenhum
+                    objetoComMarcaGavetas.remove(objetoComMarcaGavetas.userData.MeshDeContornoGavetas);
+                    objetoComMarcaGavetas.userData.MeshDeContornoGavetas = null;
+
+                    objetoComMarcaPortas.remove(objetoComMarcaPortas.userData.MeshDeContornoPortas);
+                    objetoComMarcaPortas.userData.MeshDeContornoPortas = null;
+                }
+            }
+            else
+            {   
+                // Remover o contorno de todos os objetos se o rato nao estiver em cima de nenhum
+                objetoComMarcaGavetas.remove(objetoComMarcaGavetas.userData.MeshDeContornoGavetas);
+                objetoComMarcaGavetas.userData.MeshDeContornoGavetas = null;
+
+                objetoComMarcaPortas.remove(objetoComMarcaPortas.userData.MeshDeContornoPortas);
+                objetoComMarcaPortas.userData.MeshDeContornoPortas = null;
+            }
         }
         
         function executeRaycast() {
@@ -149,21 +262,7 @@ carregador.load(
             }
         }
 
-        // -------- Materiais --------
-        //Objetos
-        const objetoTampo = cena.getObjectByName('Tampo');
-        const objetoTampo2 = cena.getObjectByName('Tampo_2');
-        const objetoGavetaR = cena.getObjectByName('Gaveta_R');
-        const objetoGavetaL = cena.getObjectByName('Gaveta_L');
-        const objetoPortaR = cena.getObjectByName('Porta_R');
-        const objetoPortaL = cena.getObjectByName('Porta_L');
-        const objetoPes = cena.getObjectByName('Pés');
-        const objetoNicho = cena.getObjectByName('Nicho');
-
-        const objetoComputador = cena.getObjectByName('Computador');
-        const objetoPlanta = cena.getObjectByName('Plant');
-
-        //Materiais -> https://ambientcg.com/list?type=Material,Atlas,Decal
+        // -------- Materiais -------- https://ambientcg.com/list?type=Material,Atlas,Decal
         var defaultMaterial = cena.getObjectByName('Tampo').material;
         
         var textura2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Color.png');
@@ -389,7 +488,7 @@ carregador.load(
             if(elemento){
                 //Apagar -> Serve para vizualizar todos os objetos
                 //console.log(elemento)
-                console.log('Nome do Objeto:', elemento.name || 'Sem nome')
+                //console.log('Nome do Objeto:', elemento.name || 'Sem nome')
                 //console.log('Nome do Objeto:', elemento.name || 'Sem nome');
                 //console.log('Tipo do Objeto:', elemento.type);
                 //console.log('UUID do Objeto:', elemento.uuid);
