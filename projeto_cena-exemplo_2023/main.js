@@ -6,6 +6,9 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js' //novo
 const ABERTA = 1
 const FECHADA = 0
 
+const VISIVEIS = true
+const INVISIVEIS = false
+
 //Data dinamica
 var anoAtual = new Date().getFullYear();
 
@@ -14,7 +17,7 @@ document.getElementById('anoAtual').innerHTML = '© ' + anoAtual + ' La Redoute.
 
 //Apagar
 //abertura gaveta -0.325176 m direção y
-let btn_teste = document.getElementById("buttonCustomise")
+let btnRemoverObjetosSecundarios = document.getElementById("buttonCustomise")
 let range = document.getElementById('range')
 
 /* cena... */
@@ -146,45 +149,6 @@ carregador.load(
             }
         }
 
-        btn_teste.addEventListener("click", function(){
-
-            //Acao gaveta direita
-            acaoGDir.timeScale = estadoGDir === FECHADA ? (estadoGDir = ABERTA, 1) : (estadoGDir = FECHADA, -1); //Defenir acao da gaveta esquerda (Abrir/Fechar)
-            acaoGDir.clampWhenFinished = true; //Pausar a animação quando chegar ao fim
-            acaoGDir.setLoop(THREE.LoopOnce);  //Fazer a animação só uma vez
-            acaoGDir.play()                    //Começar a animação
-            acaoGDir.paused = false            //Defenir que a animação está em andamento
-
-            //Acao gaveta esquerda
-            acaoGEsq.timeScale = estadoGEsq === FECHADA ? (estadoGEsq = ABERTA, 1) : (estadoGEsq = FECHADA, -1); //Defenir acao da gaveta esquerda (Abrir/Fechar)
-            acaoGEsq.clampWhenFinished = true; //Pausar a animação quando chegar ao fim
-            acaoGEsq.setLoop(THREE.LoopOnce);  //Fazer a animação só uma vez
-            acaoGEsq.play()                    //Começar a animação
-            acaoGEsq.paused = false            //Defenir que a animação está em andamento
-
-            //Acao porta direita
-            acaoPDir.timeScale = estadoPDir === FECHADA ? (estadoPDir = ABERTA, 1) : (estadoPDir = FECHADA, -1); //Defenir acao da gaveta esquerda (Abrir/Fechar)
-            acaoPDir.clampWhenFinished = true; //Pausar a animação quando chegar ao fim
-            acaoPDir.setLoop(THREE.LoopOnce);  //Fazer a animação só uma vez
-            acaoPDir.play()                    //Começar a animação
-            acaoPDir.paused = false            //Defenir que a animação está em andamento
-
-            //Acao porta esquerda
-            acaoPEsq.timeScale = estadoPEsq === FECHADA ? (estadoPEsq = ABERTA, 1) : (estadoPEsq = FECHADA, -1); //Defenir acao da gaveta esquerda (Abrir/Fechar)
-            acaoPEsq.clampWhenFinished = true; //Pausar a animação quando chegar ao fim
-            acaoPEsq.setLoop(THREE.LoopOnce);  //Fazer a animação só uma vez
-            acaoPEsq.play()                    //Começar a animação
-            acaoPEsq.paused = false            //Defenir que a animação está em andamento
-            
-           if(estadoGDir == 0){
-                document.getElementById("buttonCustomise").innerHTML = `<i id="iDasGavetas" style="font-size: 25px; margin-left: 5px;" class="bi bi-eye-fill"></i> Abrir Gavetas`
-            }
-            else{
-                document.getElementById("buttonCustomise").innerHTML = `<i id="iDasGavetas" style="font-size: 25px; margin-left: 5px;" class="bi bi-eye-slash-fill"></i> Fechar Gavetas`
-            }
-            
-         })
-
         // -------- Materiais --------
         //Objetos
         const objetoTampo = cena.getObjectByName('Tampo');
@@ -196,11 +160,11 @@ carregador.load(
         const objetoPes = cena.getObjectByName('Pés');
         const objetoNicho = cena.getObjectByName('Nicho');
 
-        const objetoMonitor = cena.getObjectByName('Monitor');
+        const objetoComputador = cena.getObjectByName('Computador');
+        const objetoPlanta = cena.getObjectByName('Plant');
 
         //Materiais -> https://ambientcg.com/list?type=Material,Atlas,Decal
-        const defaultMaterial = cena.getObjectByName('Tampo').material;
-        
+        var defaultMaterial = cena.getObjectByName('Tampo').material;
         
         var textura2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Color.png');
         var texturaDisplacement2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Displacement.png');
@@ -391,6 +355,28 @@ carregador.load(
             }
 
             animar();
+        })
+
+        // -------- Retirar objetos secundários --------
+        let estadoObjetosSecundarios = VISIVEIS
+
+        btnRemoverObjetosSecundarios.addEventListener("click", function(){
+
+            if(estadoObjetosSecundarios == VISIVEIS){
+
+                objetoComputador.visible = INVISIVEIS
+                objetoPlanta.visible = INVISIVEIS
+
+                estadoObjetosSecundarios = INVISIVEIS
+            }
+            else{
+
+                objetoComputador.visible = VISIVEIS
+                objetoPlanta.visible = VISIVEIS
+
+                estadoObjetosSecundarios = VISIVEIS
+            }
+            
         })
 
         cena.traverse(function (elemento) {
