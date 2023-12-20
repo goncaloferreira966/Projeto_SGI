@@ -196,8 +196,11 @@ carregador.load(
         const objetoPes = cena.getObjectByName('Pés');
         const objetoNicho = cena.getObjectByName('Nicho');
 
+        const objetoMonitor = cena.getObjectByName('Monitor');
+
         //Materiais -> https://ambientcg.com/list?type=Material,Atlas,Decal
         const defaultMaterial = cena.getObjectByName('Tampo').material;
+        
         
         var textura2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Color.png');
         var texturaDisplacement2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Displacement.png');
@@ -221,7 +224,7 @@ carregador.load(
             normalMap: texturaNormal2,
             roughnessMap: texturaRoughness2,
             roughness: 0,  
-            metalness: 0.2,  
+            metalness: 0.1,  
             transparent: true,
             color: new THREE.Color(0x5C4033)
         });
@@ -233,7 +236,7 @@ carregador.load(
             normalMap: texturaNormal3,
             roughnessMap: texturaRoughness3,
             roughness: 0,    //(0 indica uma superfície totalmente lisa) (1 indica uma superfície totalmente áspera)
-            metalness: 0.65,  //(0 indica um material não metálico) (1 indica um material totalmente metálico.)
+            metalness: 0.45,  //(0 indica um material não metálico) (1 indica um material totalmente metálico.)
             transparent: true,
             color: new THREE.Color(0xE7DBBC)
         }); 
@@ -245,7 +248,7 @@ carregador.load(
             normalMap: texturaNormal4,
             roughnessMap: texturaRoughness4,
             roughness: 0,  
-            metalness: 0.9,  
+            metalness: 0.8,  
             transparent: true
         });
 
@@ -391,19 +394,20 @@ carregador.load(
         })
 
         cena.traverse(function (elemento) {
-            /*
+            
             if(elemento){
                 //Apagar -> Serve para vizualizar todos os objetos
+                //console.log(elemento)
                 console.log('Nome do Objeto:', elemento.name || 'Sem nome')
-                console.log('Nome do Objeto:', elemento.name || 'Sem nome');
-                console.log('Tipo do Objeto:', elemento.type);
-                console.log('UUID do Objeto:', elemento.uuid);
-                console.log('Posição do Objeto:', elemento.position);
-                console.log('Rotação do Objeto:', elemento.rotation);
-                console.log('Escala do Objeto:', elemento.scale);
-                console.log('------------------------');
+                //console.log('Nome do Objeto:', elemento.name || 'Sem nome');
+                //console.log('Tipo do Objeto:', elemento.type);
+                //console.log('UUID do Objeto:', elemento.uuid);
+                //console.log('Posição do Objeto:', elemento.position);
+                //console.log('Rotação do Objeto:', elemento.rotation);
+                //console.log('Escala do Objeto:', elemento.scale);
+                //console.log('------------------------');
             }
-            */
+            
             if (elemento.isMesh) {
                 elemento.castShadow = true
                 elemento.receiveShadow = true
@@ -450,7 +454,7 @@ container.appendChild(renderer.domElement);
 let controls = new OrbitControls( camara, renderer.domElement ) // sem o THREE.
 controls.minDistance = 3;//distancia minima !!!!!!Colocar 4 para o objeto nao sair do canvas
 controls.maxDistance = 4.5;//distancia maxima
-controls.target.set(0,0.2,0); //Colocar o ponto foco
+controls.target.set(0,0.5,0); //Colocar o ponto foco
 
 //Prevenir o drag/mover o objeto para fora do canvas
 controls.mouseButtons = {
@@ -496,13 +500,13 @@ function luzes(cena) {
     });
     /* luzes... */
     const luzAmbiente = new THREE.AmbientLight( "white")
-    luzAmbiente.intensity = 0.5
+    luzAmbiente.intensity = 1
     cena.add(luzAmbiente)
     
     /* point light */
     const luzPonto = new THREE.PointLight( "white" )
     luzPonto.position.set( 0, 2, 2)
-    luzPonto.intensity = 10 		
+    luzPonto.intensity = 8
     cena.add( luzPonto )
     
     // auxiliar visual
@@ -512,7 +516,7 @@ function luzes(cena) {
     /* directional light */
     const luzDirecional = new THREE.DirectionalLight( cor );
     luzDirecional.position.set( 3, 2, 0 ); //aponta na direção de (0, 0, 0)
-    luzDirecional.intensity = 15
+    luzDirecional.intensity = 10
     cena.add( luzDirecional );
     
     // auxiliar visual
