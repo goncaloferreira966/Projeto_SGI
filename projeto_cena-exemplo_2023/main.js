@@ -368,15 +368,20 @@ carregador.load(
                 objetoPlanta.visible = INVISIVEIS
 
                 estadoObjetosSecundarios = INVISIVEIS
+
+                document.getElementById("buttonCustomise").innerHTML = `<i id="iDasGavetas" style="font-size: 25px; margin-left: 5px;" class="bi bi-eye-fill"></i> Mostrar Objetos`
             }
-            else{
+            else {
 
                 objetoComputador.visible = VISIVEIS
                 objetoPlanta.visible = VISIVEIS
 
                 estadoObjetosSecundarios = VISIVEIS
+
+                document.getElementById("buttonCustomise").innerHTML = `<i id="iDasGavetas" style="font-size: 25px; margin-left: 5px;" class="bi bi-eye-slash-fill"></i> Ocultar Objetos`
+
             }
-            
+
         })
 
         cena.traverse(function (elemento) {
