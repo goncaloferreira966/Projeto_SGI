@@ -271,7 +271,7 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    margin-bottom: 0px;
+    margin-bottom: -200px;
 }
 
 .payment-icons {
@@ -369,7 +369,7 @@ input[type=range]::-webkit-slider-thumb {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -400px;
+        margin-bottom: -450px;
     }
 
     .column2 {
@@ -439,11 +439,11 @@ input[type=range]::-webkit-slider-thumb {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -580px;
+        margin-bottom: -780px;
     }
 
     .column2 {
-        margin-top: 10px;
+        margin-top: 100px;
         float: left;
         width: 29%;
         padding: 10px;
@@ -455,7 +455,7 @@ input[type=range]::-webkit-slider-thumb {
 
 
     .column {
-        margin-top: 10px;
+        margin-top: 100px;
         float: left;
         width: 70%;
         padding: 10px;
@@ -576,7 +576,7 @@ input[type=range]::-webkit-slider-thumb {
         float: left;
         width: 29%;
         padding: 10px;
-        height: 1400px;
+        height: 1300px;
         /* Should be removed. Only for demonstration */
         border-radius: 20px;
     }
