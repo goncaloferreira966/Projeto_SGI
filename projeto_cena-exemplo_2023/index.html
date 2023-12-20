@@ -81,21 +81,15 @@
         <h3>Mesa Vintage em Nogueira</h3>
         <!--Cor-->
             <div style="text-align: center; padding-top: 20px;">
-                <div class="col-md-1">
-                    <i class="bi bi-pencil" id="lapis" style="border-radius:20px; color: white; font-size: 50px; background-image: url(./model/materials/Wicker2_Color_1K.png);"></i>
-                </div>
-
-                <div class="col-md-1">
-                </div>
-                <div class="col-md-10" style="margin-top: 15px;">
-                    <input type="image" id="btnMaterial1" src="./model/materials/icon1.png" width="55px"
-                        style="border-radius: 50px;">
-                    <input type="image" id="btnMaterial2" src="./model/materials/icon2.png" width="55px"
-                        style="border-radius: 50px;">
-                    <input type="image" id="btnMaterial3" src="./model/materials/icon3.png" width="55px"
-                        style="border-radius: 50px;">
-                    <input type="image" id="btnMaterial4" src="./model/materials/icon4.png" width="55px"
-                        style="border-radius: 50px;">
+                <div class="col-md-12" style="margin-top: 15px;">
+                    <input type="image" id="btnMaterial1" src="./model/materials/icon1.png" width="60px"
+                        style="border-radius: 50px; border: 5px solid rgb(240, 76, 58);">
+                    <input type="image" id="btnMaterial2" src="./model/materials/icon2.png" width="60px"
+                        style="border-radius: 50px;border: 5px solid transparent;">
+                    <input type="image" id="btnMaterial3" src="./model/materials/icon3.png" width="60px"
+                        style="border-radius: 50px;border: 5px solid transparent;">
+                    <input type="image" id="btnMaterial4" src="./model/materials/icon4.png" width="60px"
+                        style="border-radius: 50px; border: 5px solid transparent;">
                 </div>
             </div>
 
@@ -261,16 +255,28 @@
 
     //Implementar o primeiro material
     btnMaterial1.addEventListener("click", function(){
-        lapis.style.backgroundImage = "url(./model/materials/Wicker2_Color_1K.png)"
+        btnMaterial2.style.borderColor = "transparent"
+        btnMaterial3.style.borderColor = "transparent"
+        btnMaterial4.style.borderColor = "transparent"
+        btnMaterial1.style.borderColor = "rgb(240, 76, 58)"
     })
     btnMaterial2.addEventListener("click", function(){
-        lapis.style.backgroundImage = "url(./model/materials/Wicker2_Normal_1K.png)"
+        btnMaterial1.style.borderColor = "transparent"
+        btnMaterial3.style.borderColor = "transparent"
+        btnMaterial4.style.borderColor = "transparent"
+        btnMaterial2.style.borderColor = "rgb(240, 76, 58)"
     })
     btnMaterial3.addEventListener("click", function(){
-        lapis.style.backgroundImage = "url(./model/materials/Wood_Color_2K.png)"
+        btnMaterial2.style.borderColor = "transparent"
+        btnMaterial1.style.borderColor = "transparent"
+        btnMaterial4.style.borderColor = "transparent"
+        btnMaterial3.style.borderColor = "rgb(240, 76, 58)"
     })
     btnMaterial4.addEventListener("click", function(){
-        lapis.style.backgroundImage = "url(./model/materials/Wood_Normal_2K.png)"
+        btnMaterial2.style.borderColor = "transparent"
+        btnMaterial3.style.borderColor = "transparent"
+        btnMaterial1.style.borderColor = "transparent"
+        btnMaterial4.style.borderColor = "rgb(240, 76, 58)"
     })
 
 </script>
