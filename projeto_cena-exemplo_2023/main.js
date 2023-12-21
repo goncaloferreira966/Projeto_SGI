@@ -257,24 +257,24 @@ carregador.load(
         }
 
         // -------- Materiais -------- https://ambientcg.com/list?type=Material,Atlas,Decal
-        var defaultMaterial = cena.getObjectByName('Tampo').material;
+        const defaultMaterial = cena.getObjectByName('Tampo').material;
         
-        var textura2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Color.png');
-        var texturaDisplacement2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Displacement.png');
-        var texturaNormal2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_NormalDX.png');
-        var texturaRoughness2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Roughness.png');
+        const textura2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Color.png');
+        const texturaDisplacement2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Displacement.png');
+        const texturaNormal2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_NormalDX.png');
+        const texturaRoughness2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Roughness.png');
     
-        var textura3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_Color.png');
-        var texturaDisplacement3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_Displacement.png');
-        var texturaNormal3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_NormalDX.png');
-        var texturaRoughness3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_Roughness.png');
+        const textura3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_Color.png');
+        const texturaDisplacement3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_Displacement.png');
+        const texturaNormal3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_NormalDX.png');
+        const texturaRoughness3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_Roughness.png');
          
-        var textura4 = new THREE.TextureLoader().load('model/materials/4/Wood077_4K-PNG_Color.png');
-        var texturaDisplacement4 = new THREE.TextureLoader().load('model/materials/4/Wood051_1K-PNG_Displacement.png');
-        var texturaNormal4 = new THREE.TextureLoader().load('model/materials/4/Wood051_1K-PNG_NormalDX.png');
-        var texturaRoughness4 = new THREE.TextureLoader().load('model/materials/4/Wood051_1K-PNG_Roughness.png');
+        const textura4 = new THREE.TextureLoader().load('model/materials/4/Wood077_4K-PNG_Color.png');
+        const texturaDisplacement4 = new THREE.TextureLoader().load('model/materials/4/Wood051_1K-PNG_Displacement.png');
+        const texturaNormal4 = new THREE.TextureLoader().load('model/materials/4/Wood051_1K-PNG_NormalDX.png');
+        const texturaRoughness4 = new THREE.TextureLoader().load('model/materials/4/Wood051_1K-PNG_Roughness.png');
 
-        var material2 = new THREE.MeshPhysicalMaterial({
+        const material2 = new THREE.MeshPhysicalMaterial({
             map: textura2,
             displacementMap: texturaDisplacement2,
             displacementScale: 0,
@@ -286,7 +286,7 @@ carregador.load(
             color: new THREE.Color(0x5C4033)
         });
 
-        var material3 = new THREE.MeshPhysicalMaterial({
+        const material3 = new THREE.MeshPhysicalMaterial({
             map: textura3,
             displacementMap: texturaDisplacement3,
             displacementScale: 0,
@@ -298,7 +298,7 @@ carregador.load(
             color: new THREE.Color(0xE7DBBC)
         }); 
         
-        var material4 = new THREE.MeshPhysicalMaterial({
+        const material4 = new THREE.MeshPhysicalMaterial({
             map: textura4,
             displacementMap: texturaDisplacement4,
             displacementScale: 0,
