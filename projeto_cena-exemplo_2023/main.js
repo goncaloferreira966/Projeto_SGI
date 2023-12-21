@@ -260,26 +260,14 @@ carregador.load(
         const defaultMaterial = cena.getObjectByName('Tampo').material;
         
         const textura2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Color.png');
-        const texturaDisplacement2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Displacement.png');
-        const texturaNormal2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_NormalDX.png');
-        const texturaRoughness2 = new THREE.TextureLoader().load('model/materials/2/Wood006_4K-PNG_Roughness.png');
     
         const textura3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_Color.png');
-        const texturaDisplacement3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_Displacement.png');
-        const texturaNormal3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_NormalDX.png');
-        const texturaRoughness3 = new THREE.TextureLoader().load('model/materials/3/Wood021_4K-PNG_Roughness.png');
          
         const textura4 = new THREE.TextureLoader().load('model/materials/4/Wood077_4K-PNG_Color.png');
-        const texturaDisplacement4 = new THREE.TextureLoader().load('model/materials/4/Wood051_1K-PNG_Displacement.png');
-        const texturaNormal4 = new THREE.TextureLoader().load('model/materials/4/Wood051_1K-PNG_NormalDX.png');
-        const texturaRoughness4 = new THREE.TextureLoader().load('model/materials/4/Wood051_1K-PNG_Roughness.png');
 
         const material2 = new THREE.MeshPhysicalMaterial({
             map: textura2,
-            displacementMap: texturaDisplacement2,
             displacementScale: 0,
-            normalMap: texturaNormal2,
-            roughnessMap: texturaRoughness2,
             roughness: 0,  
             metalness: 0.1,  
             transparent: true,
@@ -288,10 +276,7 @@ carregador.load(
 
         const material3 = new THREE.MeshPhysicalMaterial({
             map: textura3,
-            displacementMap: texturaDisplacement3,
             displacementScale: 0,
-            normalMap: texturaNormal3,
-            roughnessMap: texturaRoughness3,
             roughness: 0,    //(0 indica uma superfície totalmente lisa) (1 indica uma superfície totalmente áspera)
             metalness: 0.45,  //(0 indica um material não metálico) (1 indica um material totalmente metálico.)
             transparent: true,
@@ -300,10 +285,7 @@ carregador.load(
         
         const material4 = new THREE.MeshPhysicalMaterial({
             map: textura4,
-            displacementMap: texturaDisplacement4,
             displacementScale: 0,
-            normalMap: texturaNormal4,
-            roughnessMap: texturaRoughness4,
             roughness: 0,  
             metalness: 0.8,  
             transparent: true
