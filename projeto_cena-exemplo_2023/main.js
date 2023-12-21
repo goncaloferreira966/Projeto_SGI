@@ -122,16 +122,12 @@ carregador.load(
         
         const MaterialDeContornoGavetas = new THREE.MeshBasicMaterial({ 
             color: 0xffffff, 
-            side: THREE.BackSide,
-            transparent: true,
-            opacity: 0.8
+            side: THREE.BackSide
         });
 
-        const MaterialDeContornoPortas = new THREE.MeshBasicMaterial({ 
-            color: 0xffffff, 
-            side: THREE.BackSide,
-            transparent: true,
-            opacity: 0.8
+        const MaterialDeContornoPortas = new THREE.LineBasicMaterial({ 
+            color: 0xffffff,
+            side: THREE.FrontSide
         });
 
         container.onmousemove = function(evento) {
@@ -142,13 +138,11 @@ carregador.load(
             
             raycaster.setFromCamera(rato, camara)
             let intersetados = raycaster.intersectObjects(candidatos)
-
-            console.clear();
             
             if (intersetados.length > 0) {
             
                 let object = intersetados[0].object;
-                console.log(object.name)
+
                 if (object.name === "Cube003" || object.name === "Cube021" || object.name === "Cube003_1" || object.name === "Cube021_1") {
                     
                     // ObjetoFilho -> ObjetoPai
@@ -186,9 +180,9 @@ carregador.load(
                     if (!object.userData.MeshDeContornoPortas) {
                     
                         const MeshDeContornoPortas = new THREE.Mesh(object.geometry, MaterialDeContornoPortas);
-                        MeshDeContornoPortas.scale.set(1, 1.02, 2);
+                        MeshDeContornoPortas.scale.set(1, 1, 1.05);
 
-                        object.add(MeshDeContornoPortas);     
+                        object.add(MeshDeContornoPortas);   
 
                         object.userData.MeshDeContornoPortas = MeshDeContornoPortas;
                         
