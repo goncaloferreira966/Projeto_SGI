@@ -16,7 +16,6 @@ var anoAtual = new Date().getFullYear();
 document.getElementById('anoAtual').innerHTML = '© ' + anoAtual + ' La Redoute. Todos os direitos reservados.';
 
 //Apagar
-//abertura gaveta -0.325176 m direção y
 let btnRemoverObjetosSecundarios = document.getElementById("buttonCustomise")
 let range = document.getElementById('range')
 
