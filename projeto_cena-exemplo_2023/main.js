@@ -73,7 +73,9 @@ carregador.load(
         const objetoTampo2 = cena.getObjectByName('Tampo_2');
         const objetoGavetaR = cena.getObjectByName('Gaveta_R');
         const objetoGavetaL = cena.getObjectByName('Gaveta_L');
+        const objetoPortaLDentro = cena.getObjectByName('Cube015');
         const objetoPortaR = cena.getObjectByName('Porta_R');
+        const objetoPortaRDentro = cena.getObjectByName('Cube019');
         const objetoPortaL = cena.getObjectByName('Porta_L');
         const objetoPes = cena.getObjectByName('Pés');
         const objetoNicho = cena.getObjectByName('Nicho');
@@ -154,7 +156,7 @@ carregador.load(
             
                 let object = intersetados[0].object;
                 
-                //console.log(object.name)
+                console.log(object.name)
 
                 if (object.name === "Cube003" || object.name === "Cube021" || object.name === "Cube003_1" || object.name === "Cube021_1") {
                     
@@ -311,6 +313,8 @@ carregador.load(
             objetoTampo2.material = defaultMaterial;
             objetoPortaR.material = defaultMaterial;
             objetoPortaL.material = defaultMaterial;
+            objetoPortaRDentro.material = defaultMaterial;
+            objetoPortaLDentro.material = defaultMaterial;
             objetoPes.material = defaultMaterial;
             
             if (objetoNicho instanceof THREE.Group) {
@@ -346,6 +350,8 @@ carregador.load(
             objetoTampo2.material = material2;
             objetoPortaR.material = material2;
             objetoPortaL.material = material2;
+            objetoPortaRDentro.material = material2;
+            objetoPortaLDentro.material = material2;
             objetoPes.material = material2;
             
             if (objetoNicho instanceof THREE.Group) {
@@ -381,6 +387,8 @@ carregador.load(
             objetoTampo2.material = material3;
             objetoPortaR.material = material3;
             objetoPortaL.material = material3;
+            objetoPortaRDentro.material = material3;
+            objetoPortaLDentro.material = material3;
             objetoPes.material = material3;
             
             if (objetoNicho instanceof THREE.Group) {
@@ -416,6 +424,8 @@ carregador.load(
             objetoTampo2.material = material4;
             objetoPortaR.material = material4;
             objetoPortaL.material = material4;
+            objetoPortaRDentro.material = material4;
+            objetoPortaLDentro.material = material4;
             objetoPes.material = material4;
             
             if (objetoNicho instanceof THREE.Group) {
