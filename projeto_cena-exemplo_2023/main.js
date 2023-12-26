@@ -68,7 +68,7 @@ carregador.load(
         
         cena.add(gltf.scene)
 
-        //Objetos
+        // -------- Objetos --------
         const objetoTampo = cena.getObjectByName('Tampo');
         const objetoTampo2 = cena.getObjectByName('Tampo_2');
         const objetoGavetaR = cena.getObjectByName('Gaveta_R');
@@ -77,9 +77,21 @@ carregador.load(
         const objetoPortaL = cena.getObjectByName('Porta_L');
         const objetoPes = cena.getObjectByName('Pés');
         const objetoNicho = cena.getObjectByName('Nicho');
-
-        const objetoComputador = cena.getObjectByName('Computador');
+        
+        //Planta
         const objetoPlanta = cena.getObjectByName('Plant');
+
+        //Computador
+        const objetoComputadorBase = cena.getObjectByName('Base');
+        const objetoComputadorMonitor = cena.getObjectByName('Monitor');
+        const objetoComputadorTeclado = cena.getObjectByName('Teclado');
+
+        //Livros
+        const objetoLivro1 = cena.getObjectByName('Livro1');
+        const objetoLivro2 = cena.getObjectByName('Livro2');
+        const objetoLivro3 = cena.getObjectByName('Livro3');
+        const objetoLivro4 = cena.getObjectByName('Livro4');
+        const objetoLivro5 = cena.getObjectByName('Livro5');
 
         // -------- Inicialização animações --------
         //Gaveta direita
@@ -141,11 +153,13 @@ carregador.load(
             if (intersetados.length > 0) {
             
                 let object = intersetados[0].object;
+                
+                //console.log(object.name)
 
                 if (object.name === "Cube003" || object.name === "Cube021" || object.name === "Cube003_1" || object.name === "Cube021_1") {
                     
                     // ObjetoFilho -> ObjetoPai
-                    if(object.name === "Cube003_1" || object.name === "Cube021_1"){
+                    if(object.name === "Cube021_1"){
                         object = object.name === "Cube003_1" ? cena.getObjectByName("Cube003") : cena.getObjectByName("Cube021");
                     }
 
@@ -438,17 +452,35 @@ carregador.load(
 
             if(estadoObjetosSecundarios == VISIVEIS){
 
-                objetoComputador.visible = INVISIVEIS
                 objetoPlanta.visible = INVISIVEIS
 
+                objetoComputadorBase.visible = INVISIVEIS
+                objetoComputadorMonitor.visible = INVISIVEIS
+                objetoComputadorTeclado.visible = INVISIVEIS
+
+                objetoLivro1.visible = INVISIVEIS
+                objetoLivro2.visible = INVISIVEIS
+                objetoLivro3.visible = INVISIVEIS
+                objetoLivro4.visible = INVISIVEIS
+                objetoLivro5.visible = INVISIVEIS
+                
                 estadoObjetosSecundarios = INVISIVEIS
 
                 document.getElementById("buttonCustomise").innerHTML = `<i id="iDasGavetas" style="font-size: 25px; margin-left: 5px;" class="bi bi-eye-fill"></i> Mostrar Objetos`
             }
             else {
 
-                objetoComputador.visible = VISIVEIS
                 objetoPlanta.visible = VISIVEIS
+
+                objetoComputadorBase.visible = VISIVEIS
+                objetoComputadorMonitor.visible = VISIVEIS
+                objetoComputadorTeclado.visible = VISIVEIS
+                
+                objetoLivro1.visible = VISIVEIS
+                objetoLivro2.visible = VISIVEIS
+                objetoLivro3.visible = VISIVEIS
+                objetoLivro4.visible = VISIVEIS
+                objetoLivro5.visible = VISIVEIS
 
                 estadoObjetosSecundarios = VISIVEIS
 
