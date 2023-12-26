@@ -156,12 +156,12 @@ carregador.load(
             
                 let object = intersetados[0].object;
                 
-                console.log(object.name)
+                //console.log(object.name)
 
                 if (object.name === "Cube003" || object.name === "Cube021" || object.name === "Cube003_1" || object.name === "Cube021_1") {
                     
                     // ObjetoFilho -> ObjetoPai
-                    if(object.name === "Cube021_1"){
+                    if(object.name === "Cube003_1" || object.name === "Cube021_1"){
                         object = object.name === "Cube003_1" ? cena.getObjectByName("Cube003") : cena.getObjectByName("Cube021");
                     }
 
