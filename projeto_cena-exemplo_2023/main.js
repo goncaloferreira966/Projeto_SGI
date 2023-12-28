@@ -95,6 +95,8 @@ carregador.load(
         const objetoLivro4 = cena.getObjectByName('Livro4');
         const objetoLivro5 = cena.getObjectByName('Livro5');
 
+        //Candeeiro
+
         // -------- Inicialização animações --------
         //Gaveta direita
         clipeGDir = THREE.AnimationClip.findByName(gltf.animations, 'Gaveta_RAction')
