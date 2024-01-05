@@ -234,14 +234,14 @@ input:checked+.slider:before {
     border-radius: 5px;
 }
 
-#buttonCustomise{
+#buttonCustomise, #buttonRegua{
     color: var(--secondary-color) !important;
     background-color: var(--primary-color) !important;
     border-radius: 5px;
     border: 2px solid lightgray;
 }
 
-#buttonCustomise:hover {
+#buttonCustomise:hover, #buttonRegua:hover {
     color: var(--secondary-color) !important;
     background-color: lightgray !important;
 }
@@ -271,7 +271,7 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    margin-bottom: -200px;
+    margin-bottom: -150px;
 }
 
 .payment-icons {
@@ -369,15 +369,15 @@ input[type=range]::-webkit-slider-thumb {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -450px;
+        margin-bottom: -350px;
     }
 
     .column2 {
-        margin-top: -120px;
+        margin-top: -200px;
         float: left;
         width: 29%;
         padding: 10px;
-        height: 700px;
+        height: 650px;
         /* Should be removed. Only for demonstration */
         border: 2px solid  var(--menupropertis-color) !important;
         border-radius: 20px;
@@ -440,7 +440,7 @@ input[type=range]::-webkit-slider-thumb {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -780px;
+        margin-bottom: -680px;
     }
 
     .column2 {
@@ -448,7 +448,7 @@ input[type=range]::-webkit-slider-thumb {
         float: left;
         width: 29%;
         padding: 10px;
-        height: 756px;
+        height: 670px;
         /* Should be removed. Only for demonstration */
         border: 2px solid  var(--menupropertis-color) !important;
         border-radius: 20px;
@@ -513,7 +513,7 @@ input[type=range]::-webkit-slider-thumb {
     }
 
     .column2 {
-        margin-top: 500px;
+        margin-top: 600px;
         float: left;
         width: 29%;
         padding: 10px;

@@ -301,7 +301,7 @@ footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    margin-bottom: -1950px;
+    margin-bottom: -1550px;
 }
 
 #contentorHome{
@@ -347,11 +347,11 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -1580px;
+        margin-bottom: -1380px;
     }
 
     #contentorHome{
-        margin-top: 1100px;
+        margin-top: 1050px;
     }
     
 }
@@ -394,11 +394,11 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -1450px;
+        margin-bottom: -1280px;
     }
 
     #contentorHome{
-        margin-top: 930px;
+        margin-top: 900px;
     }
     
 }
@@ -441,7 +441,7 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -1150px;
+        margin-bottom: -1250px;
     }
 
     #contentorHome{
@@ -490,11 +490,11 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -1350px;
+        margin-bottom: -1250px;
     }
 
     #contentorHome{
-        margin-top: 800px;
+        margin-top: 680px;
     }
     
 }
@@ -550,11 +550,11 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -1300px;
+        margin-bottom: -1180px;
     }
 
     #contentorHome{
-        margin-top: 650px;
+        margin-top: 580px;
     }
     
 }
@@ -603,13 +603,12 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -1850px;
+        margin-bottom: -1750px;
     }
 
     #contentorHome{
-        margin-top: 1190px;
-    }
-    
+        margin-top: 1100px;
+    }  
 }
 
 @media screen and (max-width: 1115px) {
@@ -655,11 +654,11 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -5500px;
+        margin-bottom: -5300px;
     }
 
     #contentorHome{
-        margin-top: 4490px;
+        margin-top: 4250px;
     }
     
 }
@@ -707,11 +706,11 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -5100px;
+        margin-bottom: -4800px;
     }
 
     #contentorHome{
-        margin-top: 3880px;
+        margin-top: 3680px;
     }
     
 }
@@ -748,11 +747,11 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -4550px;
+        margin-bottom: -4350px;
     }
 
     #contentorHome{
-        margin-top: 3200px;
+        margin-top: 3150px;
     }
     
 }
@@ -789,11 +788,11 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -4000px;
+        margin-bottom: -3850px;
     }
 
     #contentorHome{
-        margin-top: 2650px;
+        margin-top: 2550px;
     }
     
 }
@@ -831,11 +830,12 @@ footer {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -3750px;
+        margin-bottom: -3500px;
     }
 
     #contentorHome{
-        margin-top: 2300px;
-    }
-    
+        margin-top: 2200px;
+    } 
 }
+
+
