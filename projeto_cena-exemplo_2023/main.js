@@ -17,19 +17,9 @@ document.getElementById('anoAtual').innerHTML = '© ' + anoAtual + ' La Redoute.
 
 //Apagar
 let btnRemoverObjetosSecundarios = document.getElementById("buttonCustomise")
-let range = document.getElementById('range')
 
 /* cena... */
 let cena = new THREE.Scene()
-let colorPicker = document.getElementById("colorChoice")
-let cor = colorPicker.value 
-
-//Função para obter a cor do input type color
-range.addEventListener("change", function () {
-    cor = document.getElementById("colorChoice").value
-    luzes(cena)
-    animar();
-})
 
 //Obrigar a página a atualizar quando se dá resize na mesma
 window.addEventListener('resize', function(event){
@@ -96,6 +86,12 @@ carregador.load(
         const objetoLivro5 = cena.getObjectByName('Livro5');
 
         //Candeeiro
+        const objetoCandeeiroBase = cena.getObjectByName('CandeeiroBase');  
+        const objetoCandeeiroCorpo = cena.getObjectByName('CandeeiroCorpo');  
+        const objetoCandeeiroCabecaFrontal = cena.getObjectByName('CandeeiroCabeca');  
+        const objetoCandeeiroCabecaTraseira = cena.getObjectByName('CandeeiroCabeca2');  
+        const objetoLampada = cena.getObjectByName('Lampada');  
+        const objetoCasquilho = cena.getObjectByName('Casquilho');          
 
         // -------- Inicialização animações --------
         //Gaveta direita
@@ -475,6 +471,13 @@ carregador.load(
                 objetoLivro3.visible = INVISIVEIS
                 objetoLivro4.visible = INVISIVEIS
                 objetoLivro5.visible = INVISIVEIS
+
+                objetoCandeeiroBase.visible = INVISIVEIS
+                objetoCandeeiroCorpo.visible = INVISIVEIS
+                objetoCandeeiroCabecaFrontal.visible = INVISIVEIS
+                objetoCandeeiroCabecaTraseira.visible = INVISIVEIS
+                objetoCasquilho.visible = INVISIVEIS
+                objetoLampada.visible = INVISIVEIS
                 
                 estadoObjetosSecundarios = INVISIVEIS
 
@@ -493,6 +496,13 @@ carregador.load(
                 objetoLivro3.visible = VISIVEIS
                 objetoLivro4.visible = VISIVEIS
                 objetoLivro5.visible = VISIVEIS
+
+                objetoCandeeiroBase.visible = VISIVEIS
+                objetoCandeeiroCorpo.visible = VISIVEIS
+                objetoCandeeiroCabecaFrontal.visible = VISIVEIS
+                objetoCandeeiroCabecaTraseira.visible = VISIVEIS
+                objetoCasquilho.visible = VISIVEIS
+                objetoLampada.visible = VISIVEIS
 
                 estadoObjetosSecundarios = VISIVEIS
 
@@ -634,15 +644,22 @@ function luzes(cena) {
     //cena.add( lightHelper2 )
 }
 
+//Luz Candeeiro
+let range = document.getElementById('range')
+let colorPicker = document.getElementById("colorChoice")
+let cor = colorPicker.value
+
+//Função para obter a cor do input type color
+range.addEventListener("change", function () {
+
+    const objetoLampada = cena.getObjectByName('Lampada');  
+
+    cor = document.getElementById("colorChoice").value
+
+    objetoLampada.material.color.set(cor);
+
+    animar();
+})
 
 luzes(cena)
 animar()
-
-// -------- Ideias --------
-
-
-
-// -------- Coisas a fazer --------
-
-
-//Menu button da navbar tem o link do nosso produto, temos de remover na entrega
