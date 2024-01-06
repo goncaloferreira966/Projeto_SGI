@@ -15,9 +15,6 @@ var anoAtual = new Date().getFullYear();
 // Exibe o ano atual na página
 document.getElementById('anoAtual').innerHTML = '© ' + anoAtual + ' La Redoute. Todos os direitos reservados.';
 
-//Apagar
-let btnRemoverObjetosSecundarios = document.getElementById("buttonCustomise")
-
 /* cena... */
 let cena = new THREE.Scene()
 
@@ -25,6 +22,9 @@ let cena = new THREE.Scene()
 window.addEventListener('resize', function(event){
     window.location.reload();
 })
+
+//Botao de remover/adicionar objetos secunadrios 
+let btnRemoverObjetosSecundarios = document.getElementById("buttonCustomise")
 
 // -------- Animações --------
 let relogio = new THREE.Clock();
@@ -69,7 +69,7 @@ carregador.load(
         const objetoPortaL = cena.getObjectByName('Porta_L');
         const objetoPes = cena.getObjectByName('Pés');
         const objetoNicho = cena.getObjectByName('Nicho');
-        
+
         //Planta
         const objetoPlanta = cena.getObjectByName('Plant');
 
@@ -92,6 +92,12 @@ carregador.load(
         const objetoCandeeiroCabecaTraseira = cena.getObjectByName('CandeeiroCabeca2');  
         const objetoLampada = cena.getObjectByName('Lampada');  
         const objetoCasquilho = cena.getObjectByName('Casquilho');          
+
+        // -------- Luzes --------
+        const luzPrincipal = cena.getObjectByName('luzPrincipal');
+        const luzPonto = cena.getObjectByName('luzPonto');
+        const luzCandeeiro = cena.getObjectByName('luzCandeeiro');
+        const luzAmbiente = cena.getObjectByName('luzAmbiente');
 
         // -------- Inicialização animações --------
         //Gaveta direita
@@ -154,7 +160,7 @@ carregador.load(
             
                 let object = intersetados[0].object;
                 
-                //console.log(object.name)
+                console.log(object.name)
 
                 if (object.name === "Cube003" || object.name === "Cube021" || object.name === "Cube003_1" || object.name === "Cube021_1") {
                     
@@ -233,7 +239,7 @@ carregador.load(
                 switch(intersetados[0].object.parent.name){
                     case "Gaveta_R":
                         //Acao gaveta direita
-                        acaoGDir.timeScale = estadoGDir === FECHADA ? (estadoGDir = ABERTA, 1) : (estadoGDir = FECHADA, -1); //Defenir acao da gaveta esquerda (Abrir/Fechar)
+                        acaoGDir.timeScale = estadoGDir === FECHADA ? (estadoGDir = ABERTA, 1) : (estadoGDir = FECHADA, -1); //Defenir acao da gaveta direita (Abrir/Fechar)
                         acaoGDir.clampWhenFinished = true; //Pausar a animação quando chegar ao fim
                         acaoGDir.setLoop(THREE.LoopOnce);  //Fazer a animação só uma vez
                         acaoGDir.play()                    //Começar a animação
@@ -249,7 +255,7 @@ carregador.load(
                     break;
                     case "Porta_R":
                         //Acao porta direita
-                        acaoPDir.timeScale = estadoPDir === FECHADA ? (estadoPDir = ABERTA, 1) : (estadoPDir = FECHADA, -1); //Defenir acao da gaveta esquerda (Abrir/Fechar)
+                        acaoPDir.timeScale = estadoPDir === FECHADA ? (estadoPDir = ABERTA, 1) : (estadoPDir = FECHADA, -1); //Defenir acao da porta direita (Abrir/Fechar)
                         acaoPDir.clampWhenFinished = true; //Pausar a animação quando chegar ao fim
                         acaoPDir.setLoop(THREE.LoopOnce);  //Fazer a animação só uma vez
                         acaoPDir.play()                    //Começar a animação
@@ -257,7 +263,7 @@ carregador.load(
                     break;
                     case "Porta_L":
                         //Acao porta esquerda
-                        acaoPEsq.timeScale = estadoPEsq === FECHADA ? (estadoPEsq = ABERTA, 1) : (estadoPEsq = FECHADA, -1); //Defenir acao da gaveta esquerda (Abrir/Fechar)
+                        acaoPEsq.timeScale = estadoPEsq === FECHADA ? (estadoPEsq = ABERTA, 1) : (estadoPEsq = FECHADA, -1); //Defenir acao da porta esquerda (Abrir/Fechar)
                         acaoPEsq.clampWhenFinished = true; //Pausar a animação quando chegar ao fim
                         acaoPEsq.setLoop(THREE.LoopOnce);  //Fazer a animação só uma vez
                         acaoPEsq.play()                    //Começar a animação
@@ -307,6 +313,12 @@ carregador.load(
         //Madeira Default
         document.getElementById('btnMaterial1').addEventListener("click", function(){
 
+            luzPrincipal.intensity = 5
+            luzPonto.intensity = 20
+            luzAmbiente.intensity = 1
+            luzCandeeiro.intensity = 2.5
+            luzCandeeiro.decay = 1.1
+
             objetoTampo.material = defaultMaterial;
             objetoTampo2.material = defaultMaterial;
             objetoPortaR.material = defaultMaterial;
@@ -343,6 +355,12 @@ carregador.load(
         })
 
         document.getElementById('btnMaterial2').addEventListener("click", function(){
+
+            luzPrincipal.intensity = 8
+            luzPonto.intensity = 20
+            luzAmbiente.intensity = 1.5
+            luzCandeeiro.intensity = 4
+            luzCandeeiro.decay = 2
 
             objetoTampo.material = material2;
             objetoTampo2.material = material2;
@@ -381,6 +399,12 @@ carregador.load(
 
         document.getElementById('btnMaterial3').addEventListener("click", function(){
 
+            luzPrincipal.intensity = 3
+            luzPonto.intensity = 25
+            luzAmbiente.intensity = 2.5
+            luzCandeeiro.intensity = 2
+            luzCandeeiro.decay = 1.2
+            
             objetoTampo.material = material3;
             objetoTampo2.material = material3;
             objetoPortaR.material = material3;
@@ -417,6 +441,12 @@ carregador.load(
         })
 
         document.getElementById('btnMaterial4').addEventListener("click", function(){
+
+            luzPrincipal.intensity = 4
+            luzPonto.intensity = 20
+            luzAmbiente.intensity = 1
+            luzCandeeiro.intensity = 4
+            luzCandeeiro.decay = 2
 
             objetoTampo.material = material4;
             objetoTampo2.material = material4;
@@ -478,6 +508,7 @@ carregador.load(
                 objetoCandeeiroCabecaTraseira.visible = INVISIVEIS
                 objetoCasquilho.visible = INVISIVEIS
                 objetoLampada.visible = INVISIVEIS
+                luzCandeeiro.visible = INVISIVEIS
                 
                 estadoObjetosSecundarios = INVISIVEIS
 
@@ -503,6 +534,7 @@ carregador.load(
                 objetoCandeeiroCabecaTraseira.visible = VISIVEIS
                 objetoCasquilho.visible = VISIVEIS
                 objetoLampada.visible = VISIVEIS
+                luzCandeeiro.visible = VISIVEIS
 
                 estadoObjetosSecundarios = VISIVEIS
 
@@ -573,9 +605,9 @@ container.appendChild(renderer.domElement);
 let controls = new OrbitControls( camara, renderer.domElement ) // sem o THREE.
 controls.minDistance = 2.65;//distancia minima !!!!!!Colocar 4 para o objeto nao sair do canvas
 controls.maxDistance = 4;//distancia maxima
-controls.target.set(0,0.5,0); //Colocar o ponto foco
 controls.rotateSpeed = 0.6 // Velocidade de rotação da camara
 controls.zoomSpeed = 0.5; // Velocidade do zoom
+controls.target.set(0,0.5,0); //Colocar o ponto foco
 
 //Prevenir o drag/mover o objeto para fora do canvas
 controls.mouseButtons = {
@@ -619,49 +651,73 @@ function luzes(cena) {
             cena.remove(child);
         }
     });
+
     /* luzes... */
     const luzAmbiente = new THREE.AmbientLight( "white")
+    luzAmbiente.name = "luzAmbiente"
     luzAmbiente.intensity = 1
-    cena.add(luzAmbiente)
+    cena.add(luzAmbiente)  
     
     /* point light */
     const luzPonto = new THREE.PointLight( "white" )
+    luzPonto.name = "luzPonto"
     luzPonto.position.set( 0, 2, 2)
-    luzPonto.intensity = 8
+    luzPonto.intensity = 20
     cena.add( luzPonto )
     
-    // auxiliar visual
-    //const lightHelper1 = new THREE.PointLightHelper( luzPonto, 0.2 )
-    //cena.add( lightHelper1 )
-
     /* directional light */
-    const luzDirecional = new THREE.DirectionalLight( cor );
-    luzDirecional.position.set( 3, 2, 0 ); //aponta na direção de (0, 0, 0)
-    luzDirecional.intensity = 10
-    cena.add( luzDirecional );
+    const luzDirecional = new THREE.DirectionalLight("white")
+    luzDirecional.name = 'luzPrincipal';
+    luzDirecional.position.set( 3, 2, 3 )
+    luzDirecional.intensity = 5
+    cena.add( luzDirecional )
     
-    // auxiliar visual
-    //const lightHelper2 = new THREE.DirectionalLightHelper( luzDirecional, 0.2 )
-    //Esta é a linha da luz DEIXAR COMENTADO
-    //cena.add( lightHelper2 )
+    //Luz Candeeeiro
+    const luzCandeeiro = new THREE.SpotLight("white");
+    luzCandeeiro.name = 'luzCandeeiro';
+    luzCandeeiro.position.set(-0.4873853921890259, 0.938849925994873, -0.13621173799037933);
+    luzCandeeiro.intensity = 2.5
+    luzCandeeiro.penumbra = 1 //Se a luz tem contorno ou é bassa
+    luzCandeeiro.angle = 300
+    luzCandeeiro.distance = 3 //Distancia da luz para nao passar objetos
+    luzCandeeiro.decay = 1.1 
+    cena.add(luzCandeeiro)
+    
+    //Criar um alvo (target) para a SpotLight -> Onde a luz ira apontar
+    const alvo = new THREE.Object3D();
+    alvo.castShadow = true
+    alvo.position.set(0,0.795240635871887,0.24627012610435486);
+    cena.add(alvo);
+
+    luzCandeeiro.target = alvo  
+    luzPonto.target = alvo
+    
+    //let aux = new THREE.SpotLightHelper(luzCandeeiro);
+    //cena.add(aux)
+
+    //Cor da lamapda do Candeeiro
+    let range = document.getElementById('range')
+    let cor = document.getElementById("colorChoice").value
+    
+    //Função para obter a cor do input type color e mudar a cor do candeeiro
+    range.addEventListener("change", function () {
+
+        cor = document.getElementById("colorChoice").value
+        
+        luzCandeeiro.color.set(cor)
+        
+        console.log(range.value)
+        //Mudar cor da lamapda
+        if(range.value < 35){ //Cor azul
+            cor = 0x479AFF
+        }
+        else if(range.value > 65){
+            cor = 0xf4d03f
+        }
+
+        cena.getObjectByName('Lampada').material.emissive.set(cor);
+    })
 }
-
-//Luz Candeeiro
-let range = document.getElementById('range')
-let colorPicker = document.getElementById("colorChoice")
-let cor = colorPicker.value
-
-//Função para obter a cor do input type color
-range.addEventListener("change", function () {
-
-    const objetoLampada = cena.getObjectByName('Lampada');  
-
-    cor = document.getElementById("colorChoice").value
-
-    objetoLampada.material.color.set(cor);
-
-    animar();
-})
 
 luzes(cena)
 animar()
