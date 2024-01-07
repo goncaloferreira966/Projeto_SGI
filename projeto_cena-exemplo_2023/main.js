@@ -25,6 +25,8 @@ window.addEventListener('resize', function(event){
 
 //Botao de remover/adicionar objetos secunadrios 
 let btnRemoverObjetosSecundarios = document.getElementById("buttonCustomise")
+let btnRemoverObjetosMedidasSecretaria = document.getElementById("buttonRegua")
+let btnTemaSite = document.getElementById("checkbox")
 
 // -------- Animações --------
 let relogio = new THREE.Clock();
@@ -93,12 +95,12 @@ carregador.load(
         const objetoLampada = cena.getObjectByName('Lampada');  
         const objetoCasquilho = cena.getObjectByName('Casquilho');          
 
-        // -------- Luzes --------
+        //Luzes 
         const luzPrincipal = cena.getObjectByName('luzPrincipal');
         const luzPonto = cena.getObjectByName('luzPonto');
         const luzCandeeiro = cena.getObjectByName('luzCandeeiro');
         const luzAmbiente = cena.getObjectByName('luzAmbiente');
-
+ 
         // -------- Inicialização animações --------
         //Gaveta direita
         clipeGDir = THREE.AnimationClip.findByName(gltf.animations, 'Gaveta_RAction')
@@ -147,8 +149,33 @@ carregador.load(
             side: THREE.FrontSide
         });
 
+        //Objetos para seguir a camara
+        let objetoTextoAltura = cena.getObjectByName('TextoAltura');
+        let objetoTextoComprimento= cena.getObjectByName('TextoComprimento');
+        let objetoTextoLargura = cena.getObjectByName('TextoLargura');
+        let objetoTextoAlturaPes = cena.getObjectByName('TextoAlturaPes');
+        let objetoMedidasSecretaria= cena.getObjectByName('EstruturaMedidas');
+
+        objetoTextoAltura.visible = INVISIVEIS
+        objetoTextoComprimento.visible = INVISIVEIS
+        objetoTextoLargura.visible = INVISIVEIS
+        objetoTextoAlturaPes.visible = INVISIVEIS
+        objetoMedidasSecretaria.visible = INVISIVEIS
+
+        //Colocar os objetos para onde estão as camaras
+        objetoTextoAltura.lookAt(camara.position);
+        objetoTextoComprimento.lookAt(camara.position);
+        objetoTextoLargura.lookAt(camara.position);
+        objetoTextoAlturaPes.lookAt(camara.position);
+
         container.onmousemove = function(evento) {
     
+            //Colocar os objetos para onde estão as camaras
+            objetoTextoAltura.lookAt(camara.position);
+            objetoTextoComprimento.lookAt(camara.position);
+            objetoTextoLargura.lookAt(camara.position);
+            objetoTextoAlturaPes.lookAt(camara.position);
+
             const rect = renderer.domElement.getBoundingClientRect();
             rato.x = ((evento.clientX - rect.left) / (rect.right - rect.left)) * 2 - 1;
             rato.y = - ((evento.clientY - rect.top) / (rect.bottom - rect.top)) * 2 + 1;
@@ -160,7 +187,7 @@ carregador.load(
             
                 let object = intersetados[0].object;
                 
-                console.log(object.name)
+                //console.log(object.name)
 
                 if (object.name === "Cube003" || object.name === "Cube021" || object.name === "Cube003_1" || object.name === "Cube021_1") {
                     
@@ -544,6 +571,75 @@ carregador.load(
 
         })
 
+        // -------- Retirar objetos com medidas da secretaria --------
+        let estadoObjetosMedidasSecretaria = INVISIVEIS
+
+        btnRemoverObjetosMedidasSecretaria.addEventListener("click", function(){
+
+            if(estadoObjetosMedidasSecretaria == INVISIVEIS){
+
+                objetoTextoAltura.visible = VISIVEIS
+                objetoTextoComprimento.visible = VISIVEIS
+                objetoTextoLargura.visible = VISIVEIS
+                objetoTextoAlturaPes.visible = VISIVEIS
+                objetoMedidasSecretaria.visible = VISIVEIS
+
+                estadoObjetosMedidasSecretaria = VISIVEIS
+            }
+            else{
+
+                objetoTextoAltura.visible = INVISIVEIS
+                objetoTextoComprimento.visible = INVISIVEIS
+                objetoTextoLargura.visible = INVISIVEIS
+                objetoTextoAlturaPes.visible = INVISIVEIS
+                objetoMedidasSecretaria.visible = INVISIVEIS
+
+                estadoObjetosMedidasSecretaria = INVISIVEIS
+            }
+        })
+
+        //Saber o tema do site
+        btnTemaSite.addEventListener("click", function(){
+
+            if (btnTemaSite.checked == true){ 
+                // Tema Escuro
+                objetoTextoAltura.material.color.set(0xFFFFFF)
+                objetoTextoComprimento.material.color.set(0xFFFFFF)
+                objetoTextoLargura.material.color.set(0xFFFFFF)
+                objetoTextoAlturaPes.material.color.set(0xFFFFFF)
+                objetoMedidasSecretaria.material.color.set(0xFFFFFF) 
+    
+            }  else {
+               // Tema Claro
+               objetoTextoAltura.material.color.set(0x2F2F2F)
+               objetoTextoComprimento.material.color.set(0x2F2F2F)
+               objetoTextoLargura.material.color.set(0x2F2F2F)
+               objetoTextoAlturaPes.material.color.set(0x2F2F2F)
+               objetoMedidasSecretaria.material.color.set(0x2F2F2F)
+            }
+            
+        })
+    
+        $(document).ready ( function(){
+            
+            if (btnTemaSite.checked == true){ 
+                // Tema Escuro
+                objetoTextoAltura.material.color.set(0xFFFFFF)
+                objetoTextoComprimento.material.color.set(0xFFFFFF)
+                objetoTextoLargura.material.color.set(0xFFFFFF)
+                objetoTextoAlturaPes.material.color.set(0xFFFFFF)
+                objetoMedidasSecretaria.material.color.set(0xFFFFFF) 
+    
+            }  else {
+               // Tema Claro
+               objetoTextoAltura.material.color.set(0x2F2F2F)
+               objetoTextoComprimento.material.color.set(0x2F2F2F)
+               objetoTextoLargura.material.color.set(0x2F2F2F)
+               objetoTextoAlturaPes.material.color.set(0x2F2F2F)
+               objetoMedidasSecretaria.material.color.set(0x2F2F2F)
+            }
+        });
+
         cena.traverse(function (elemento) {
             
             if(elemento){
@@ -636,6 +732,7 @@ function animar() {
 */
 
 function animar() {
+
     requestAnimationFrame(animar)
     misturador.update( relogio.getDelta() )
     //stats.update()
