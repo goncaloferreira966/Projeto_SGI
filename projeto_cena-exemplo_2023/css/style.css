@@ -234,14 +234,14 @@ input:checked+.slider:before {
     border-radius: 5px;
 }
 
-#buttonCustomise, #buttonRegua{
+#buttonCustomise, #buttonRegua, #btnInformation{
     color: var(--secondary-color) !important;
     background-color: var(--primary-color) !important;
     border-radius: 5px;
     border: 2px solid lightgray;
 }
 
-#buttonCustomise:hover, #buttonRegua:hover {
+#buttonCustomise:hover, #buttonRegua:hover, #btnInformation:hover {
     color: var(--secondary-color) !important;
     background-color: lightgray !important;
 }
@@ -330,6 +330,10 @@ input[type=range]::-webkit-slider-thumb {
     margin-top: -3.6px;
   }
 
+  #containerText{
+    text-align: center;
+}
+
 
 @media screen and (max-width: 2000px) {
     .container {
@@ -392,8 +396,91 @@ input[type=range]::-webkit-slider-thumb {
         /* Should be removed. Only for demonstration */
         border-radius: 20px;
     }
+
+    #containerText{
+        margin-top: -120px;
+        float: left;
+        width: 70%;
+        padding: 10px;
+        height: 70vh;
+        /* Should be removed. Only for demonstration */
+        border-radius: 20px;
+    }
 }
 
+
+@media screen and (max-width: 1700px) {
+    .container {
+        width: 100%;
+        text-align: center;
+    }
+
+    body {
+        align-items: center;
+        text-align: center;
+    }
+
+    .tab button {
+        padding: 14px 16px;
+    }
+
+    .navbar-brand {
+        margin-top: -0.7vh;
+        margin-left: 10vw;
+        font-size: 2rem;
+    }
+
+    .navbar {
+        font-size: 1.5rem !important;
+    }
+
+    #switchTheme {
+        margin-right: 10px;
+    }
+
+    footer {
+        padding-top: 100px;
+        background-color: var(--menupropertis-color);
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin-bottom: -350px;
+    }
+
+    .column2 {
+        margin-top: -200px;
+        float: left;
+        width: 29%;
+        padding: 10px;
+        height: 650px;
+        /* Should be removed. Only for demonstration */
+        border: 2px solid  var(--menupropertis-color) !important;
+        border-radius: 20px;
+    }
+
+    .column {
+        margin-top: -120px;
+        float: left;
+        width: 70%;
+        padding: 10px;
+        height: 70vh;
+        /* Should be removed. Only for demonstration */
+        border-radius: 20px;
+    }
+
+    #containerText{
+        margin-top: -180px;
+        float: left;
+        width: 70%;
+        padding: 10px;
+        height: 70vh;
+        /* Should be removed. Only for demonstration */
+        border-radius: 20px;
+    }
+}
 
 
 
@@ -417,7 +504,6 @@ input[type=range]::-webkit-slider-thumb {
         margin-left: 10vw;
         font-size: 2rem;
     }
-
 
     .navbar {
         font-size: 1.5rem !important;
@@ -464,6 +550,17 @@ input[type=range]::-webkit-slider-thumb {
         /* Should be removed. Only for demonstration */
         border-radius: 20px;
     }
+
+    #containerText{
+        margin-top: 0px;
+        float: left;
+        width: 70%;
+        padding: 10px;
+        height: 70vh;
+        /* Should be removed. Only for demonstration */
+        border-radius: 20px;
+    }
+    
 }
 
 @media screen and (max-width: 1115px) {
@@ -509,7 +606,7 @@ input[type=range]::-webkit-slider-thumb {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -1550px;
+        margin-bottom: -1580px;
     }
 
     .column2 {
@@ -517,12 +614,22 @@ input[type=range]::-webkit-slider-thumb {
         float: left;
         width: 29%;
         padding: 10px;
-        height: 1100px;
+        height: 1150px;
         /* Should be removed. Only for demonstration */
         border-radius: 20px;
     }
     .column {
-        margin-top: 500px;
+        margin-top: 600px;
+        float: left;
+        width: 70%;
+        padding: 10px;
+        height: 70vh;
+        /* Should be removed. Only for demonstration */
+        border-radius: 20px;
+    }
+
+    #containerText{
+        margin-top: 100px;
         float: left;
         width: 70%;
         padding: 10px;
@@ -559,7 +666,6 @@ input[type=range]::-webkit-slider-thumb {
         margin-left: 47%;
     }
 
-
     footer {
         padding-top: 100px;
         background-color:  var(--menupropertis-color) !important;
@@ -569,7 +675,7 @@ input[type=range]::-webkit-slider-thumb {
         position: absolute;
         bottom: 0;
         width: 100%;
-        margin-bottom: -1900px;
+        margin-bottom: -1980px;
     }
 
     .column2 {
@@ -577,13 +683,23 @@ input[type=range]::-webkit-slider-thumb {
         float: left;
         width: 29%;
         padding: 10px;
-        height: 1300px;
+        height: 1410px;
         /* Should be removed. Only for demonstration */
         border-radius: 20px;
     }
 
     .column {
         margin-top: 500px;
+        float: left;
+        width: 70%;
+        padding: 10px;
+        height: 70vh;
+        /* Should be removed. Only for demonstration */
+        border-radius: 20px;
+    }
+
+    #containerText{
+        margin-top: 100px;
         float: left;
         width: 70%;
         padding: 10px;

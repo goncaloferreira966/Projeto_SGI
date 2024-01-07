@@ -77,6 +77,33 @@
     <div class="column" id="container" style=" border-radius: 20px;">
 
     </div>
+<div class="column" id="containerText" style=" border-radius: 20px;" hidden>
+    <h1>Descrição do Artigo</h1>
+    <h4>Secretária vintage com compartimento duplo, em nogueira, Dalqui nogueira LA REDOUTE INTERIEURS</h3>
+        <br>
+        <h5 style="color:rgb(240, 76, 58)">Ref 1179832 / GJP439</h5>
+        <p> • É através de uma combinação harmoniosa de um folheado em nogueira, de um rotim delicado e de linhas
+            simples
+            que o Dalqui evoca um estilo vintage. Uma criação La Redoute Intérieurs.</p>
+        <br>
+        <h5 style="color:rgb(240, 76, 58)">Descrição:</h6>
+            <p> • Em nogueira maciça e MDF folha de nogueira, acabamento com verniz PU e NC • 2 portas + 2 gavetas •
+                Portas em rotim entrançado • Abertura da porta com sistema push pull e dobradiças soft closing para um
+                fecho suave</p>
+            <br>
+            <h5 style="color:rgb(240, 76, 58)">Dimensões:</h5>
+            <p>Totais
+                • Largura: 145 cm • Altura: 76 cm • Profundidade: 70 cm • Altura dos pés: 22,7 cm • Peso: 60 kg</p>
+            <p>Úteis
+                • Gaveta: larg. 33 x alt. 6,5 x prof. 58 cm • Nicho da porta: larg. 36 x alt. 35 x prof. 61 cm</p>
+            <br>
+            <h5 style="color:rgb(240, 76, 58)">Ficha Técnica</h6>
+
+                <a href="./model/guia.pdf" download>
+                    <i style="font-size: 35px; " class="bi bi-filetype-pdf"></i> Descarregar Guia
+                </a>
+</div>
+
     <div class="column2" style="text-align: left;">
         <h3 style="text-align: center;">Mesa Vintage em Nogueira</h3>
         <!--Cor-->
@@ -120,14 +147,27 @@
         <div style="text-align: center;margin-top: 70px;">
             <h4 style="text-decoration: line-through; display: block;">799€</h4>
                 <h3 style=" color: rgb(196, 5, 5); display: block; padding-bottom: 20px;">599€ -25%</h3>
-                <input type="number" style="width: 100%; height: 50px; border-radius: 5px; border: 2px  solid var(--menupropertis-color) !important;" class="form-control" placeholder="Quantidade: " min="1" max="10">
-                <button type="button" id="btnCart" class="btn"
-                    style="width: 100%; font-size: medium; margin-top: 25px;"><i
-                        style="font-size: 25px; margin-left: 5px;" class="bi-bag"></i> Juntar
-                    ao
-                    Carrinho</button>
-                <h4 style="text-align: center;"><i style="font-size: 25px; margin-left: 5px;" class="bi-clock"></i>
-                    Disponível para envio até 5 dias úteis</h4>
+                <div class="col-md-12">
+                    
+                    <input type="number" style="width: 100%; height: 50px; border-radius: 5px; border: 2px  solid var(--menupropertis-color) !important;" class="form-control" placeholder="Quantidade: " min="1" max="10">
+                </div>
+                <div class="col-md-3">
+                    <button type="button" id="btnInformation" class="btn"
+                        style="width: 100%; font-size: medium; margin-top: 25px;"><i
+                            style="font-size: 25px; margin-left: 5px;" class="bi bi-info-circle-fill"></i></button>
+                </div>
+                <div class="col-md-9">
+                    <button type="button" id="btnCart" class="btn"
+                        style="width: 100%; font-size: medium; margin-top: 25px;"><i
+                            style="font-size: 25px; margin-left: 5px;" class="bi-bag"></i> Juntar
+                        ao
+                        Carrinho</button>
+                </div>
+                <div class="col-md-12">
+
+                    <h4 style="text-align: center; margin-top: 25px;"><i style="font-size: 25px; margin-left: 5px;" class="bi-clock"></i>
+                        Disponível para envio até 5 dias úteis</h4>
+                </div>
         </div>
     </div>
 
@@ -216,6 +256,7 @@
     let colorPicker = document.getElementById("colorChoice")
     let colorLamp = document.getElementById("colorLamp")
     let lapis = document.getElementById("lapis")
+    let btnInformation = document.getElementById("btnInformation")
 
     range.addEventListener("change", function () {
         if(range.value >=0 & range.value<10){
@@ -286,6 +327,24 @@
         btnMaterial1.style.borderColor = "transparent"
         btnMaterial4.style.borderColor = "rgb(240, 76, 58)"
     })
+
+
+    btnInformation.addEventListener("click", function(){
+        let container = document.getElementById("container")
+        let containerText = document.getElementById("containerText")
+
+        if(container.hidden == false){
+            containerText.hidden = false
+            container.hidden = true
+            btnInformation.innerHTML = `<i style="font-size: 25px; margin-left: 5px;" class="bi bi-badge-3d-fill"></i>`
+        }
+        else{
+            containerText.hidden = true
+            container.hidden = false
+            btnInformation.innerHTML = `<i style="font-size: 25px; margin-left: 5px;" class="bi bi-info-circle-fill"></i>`
+        }
+    })
+
 
 </script>
 <style>
