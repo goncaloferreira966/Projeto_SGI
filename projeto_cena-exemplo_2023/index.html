@@ -258,7 +258,7 @@
     let lapis = document.getElementById("lapis")
     let btnInformation = document.getElementById("btnInformation")
 
-    range.addEventListener("change", function () {
+    $("#range").on("input change", function() {
         if(range.value >=0 & range.value<10){
             colorPicker.value="#85c1e9"
             colorLamp.style.color= "#85c1e9"
@@ -295,7 +295,7 @@
             colorPicker.value="#f4d03f"
             colorLamp.style.color= "#f4d03f"
         }
-    })
+    });
 
     let btnMaterial1 = document.getElementById('btnMaterial1');
     let btnMaterial2 = document.getElementById('btnMaterial2');

@@ -700,7 +700,7 @@ function luzes(cena) {
     let cor = document.getElementById("colorChoice").value
     
     //Função para obter a cor do input type color e mudar a cor do candeeiro
-    range.addEventListener("change", function () {
+    $("#range").on("input change", function() {
 
         cor = document.getElementById("colorChoice").value
         
