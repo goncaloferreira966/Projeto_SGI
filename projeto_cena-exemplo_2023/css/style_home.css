@@ -149,7 +149,7 @@ input:checked+.slider:before {
     --back-color: white;
     --a-color: black;
     --icons-color: invert(0%);
-    --menupropertis-color: rgb(227, 226, 226);
+    --menupropertis-color: rgb(235, 235, 235);
     --backtotop-color: rgb(149, 149, 149);
 }
 
@@ -160,7 +160,7 @@ input:checked+.slider:before {
     --back-color: #2f2f2f;
     --a-color: #ffffff;
     --icons-color: invert(100%);
-    --menupropertis-color: rgb(83, 82, 82);
+    --menupropertis-color: rgb(164, 164, 164);
     --backtotop-color: black;
 }
 
