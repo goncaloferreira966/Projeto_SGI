@@ -562,7 +562,13 @@ carregador.load(
                 objetoCandeeiroCabecaTraseira.visible = VISIVEIS
                 objetoCasquilho.visible = VISIVEIS
                 objetoLampada.visible = VISIVEIS
-                luzCandeeiro.visible = VISIVEIS
+                
+                if(estadoLampada == INVISIVEIS){
+                    luzCandeeiro.visible = INVISIVEIS
+                }
+                else{
+                    luzCandeeiro.visible = VISIVEIS
+                }
 
                 estadoObjetosSecundarios = VISIVEIS
 
@@ -642,29 +648,59 @@ carregador.load(
         });
 
         //Botão para ligar/desligar luzes
-        let estadoLampada = VISIVEIS//Guarda o estado da lãmpada
+        let estadoLampada = VISIVEIS
         let colorLamp = document.getElementById("colorLamp")
         let colorLampOff = document.getElementById("colorLampOff")
+
         btnLuz.addEventListener("click", function () {
+
+            if(estadoObjetosSecundarios == INVISIVEIS){
+                return;
+            }
 
             //Lampada Acesa
             if(estadoLampada == VISIVEIS){
-                //Alterar estados
+
                 luzCandeeiro.visible = INVISIVEIS
-                estadoLampada = INVISIVEIS    
+                objetoLampada.material.emissive.set(0xFFFFFF)
+                estadoLampada = INVISIVEIS  
+
                 colorLamp.hidden = true
                 colorLampOff.hidden = false
-     
             }
-            //Lampada Apagada
-            else {
-                //Alterar estados
+            else{ //Lampada Apagada
+
                 luzCandeeiro.visible = VISIVEIS
+                objetoLampada.material.emissive.set(cor)
                 estadoLampada = VISIVEIS
+
                 colorLamp.hidden = false
                 colorLampOff.hidden = true
             }
+        })
 
+        //Cor da lamapda do Candeeiro
+        let range = document.getElementById('range')
+        let cor = document.getElementById("colorChoice").value
+        
+        //Função para obter a cor do input type color e mudar a cor do candeeiro
+        $("#range").on("input change", function() {
+
+            cor = document.getElementById("colorChoice").value
+            
+            luzCandeeiro.color.set(cor)
+            
+            //Mudar cor da lamapda
+            if(range.value < 35){ //Cor azul
+                cor = 0x479AFF
+            }
+            else if(range.value > 65){
+                cor = 0xf4d03f
+            }
+
+            if(estadoLampada == VISIVEIS){
+                cena.getObjectByName('Lampada').material.emissive.set(cor);
+            }
         })
 
         cena.traverse(function (elemento) {
@@ -818,29 +854,6 @@ function luzes(cena) {
     
     //let aux = new THREE.SpotLightHelper(luzCandeeiro);
     //cena.add(aux)
-
-    //Cor da lamapda do Candeeiro
-    let range = document.getElementById('range')
-    let cor = document.getElementById("colorChoice").value
-    
-    //Função para obter a cor do input type color e mudar a cor do candeeiro
-    $("#range").on("input change", function() {
-
-        cor = document.getElementById("colorChoice").value
-        
-        luzCandeeiro.color.set(cor)
-        
-        console.log(range.value)
-        //Mudar cor da lamapda
-        if(range.value < 35){ //Cor azul
-            cor = 0x479AFF
-        }
-        else if(range.value > 65){
-            cor = 0xf4d03f
-        }
-
-        cena.getObjectByName('Lampada').material.emissive.set(cor);
-    })
 }
 
 luzes(cena)
