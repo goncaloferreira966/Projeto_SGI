@@ -334,6 +334,23 @@ input[type=range]::-webkit-slider-thumb {
     text-align: center;
 }
 
+#buttonLampada{
+    background-color: transparent !important;
+}
+
+#buttonLampada:hover{
+    background-color: transparent !important;
+}
+
+#buttonLampada:focus{
+    background-color: transparent !important;
+    border: 0px solid transparent  !important;
+}
+
+#buttonLampada:active{
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
 
 @media screen and (max-width: 2000px) {
     .container {

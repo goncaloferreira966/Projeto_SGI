@@ -27,6 +27,7 @@ window.addEventListener('resize', function(event){
 let btnRemoverObjetosSecundarios = document.getElementById("buttonCustomise")
 let btnRemoverObjetosMedidasSecretaria = document.getElementById("buttonRegua")
 let btnTemaSite = document.getElementById("checkbox")
+let btnLuz = document.getElementById("buttonLampada")
 
 // -------- Animações --------
 let relogio = new THREE.Clock();
@@ -639,6 +640,32 @@ carregador.load(
                objetoMedidasSecretaria.material.color.set(0x2F2F2F)
             }
         });
+
+        //Botão para ligar/desligar luzes
+        let estadoLampada = VISIVEIS//Guarda o estado da lãmpada
+        let colorLamp = document.getElementById("colorLamp")
+        let colorLampOff = document.getElementById("colorLampOff")
+        btnLuz.addEventListener("click", function () {
+
+            //Lampada Acesa
+            if(estadoLampada == VISIVEIS){
+                //Alterar estados
+                luzCandeeiro.visible = INVISIVEIS
+                estadoLampada = INVISIVEIS    
+                colorLamp.hidden = true
+                colorLampOff.hidden = false
+     
+            }
+            //Lampada Apagada
+            else {
+                //Alterar estados
+                luzCandeeiro.visible = VISIVEIS
+                estadoLampada = VISIVEIS
+                colorLamp.hidden = false
+                colorLampOff.hidden = true
+            }
+
+        })
 
         cena.traverse(function (elemento) {
             
