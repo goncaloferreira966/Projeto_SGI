@@ -188,8 +188,6 @@ carregador.load(
             
                 let object = intersetados[0].object;
                 
-                //console.log(object.name)
-
                 if (object.name === "Cube003" || object.name === "Cube021" || object.name === "Cube003_1" || object.name === "Cube021_1") {
                     
                     // ObjetoFilho -> ObjetoPai
@@ -704,20 +702,7 @@ carregador.load(
         })
 
         cena.traverse(function (elemento) {
-            
-            if(elemento){
-                //Apagar -> Serve para vizualizar todos os objetos
-                //console.log(elemento)
-                //console.log('Nome do Objeto:', elemento.name || 'Sem nome')
-                //console.log('Nome do Objeto:', elemento.name || 'Sem nome');
-                //console.log('Tipo do Objeto:', elemento.type);
-                //console.log('UUID do Objeto:', elemento.uuid);
-                //console.log('Posição do Objeto:', elemento.position);
-                //console.log('Rotação do Objeto:', elemento.rotation);
-                //console.log('Escala do Objeto:', elemento.scale);
-                //console.log('------------------------');
-            }
-            
+                        
             if (elemento.isMesh) {
                 elemento.castShadow = true
                 elemento.receiveShadow = true
@@ -748,22 +733,12 @@ function renderizar() {
 //Dar o tamanho ao canvas a partir do objeto e nao da resolução do ecrã
 renderer.setSize($(container).width(), $(container).height());
 
-//let renderer = new THREE.WebGLRenderer(/*{canvas:canvasContainer}*/)
-//renderer.setSize( window.innerWidth, window.innerHeight )
-//renderer.setSize(container.offsetWidth, container.offsetHeight);
 container.appendChild(renderer.domElement);
-
-//GREHLA E EIXOS DEIXAR COMENTADO
-//let grelha = new THREE.GridHelper()
-//cena.add( grelha )
-
-//let eixos = new THREE.AxesHelper(3)
-//cena.add( eixos )
 
 //Controlar o ZOOM
 let controls = new OrbitControls( camara, renderer.domElement ) // sem o THREE.
-controls.minDistance = 2.65;//distancia minima !!!!!!Colocar 4 para o objeto nao sair do canvas
-controls.maxDistance = 4;//distancia maxima
+controls.minDistance = 2.65; //distancia minima
+controls.maxDistance = 4; //distancia maxima
 controls.rotateSpeed = 0.6 // Velocidade de rotação da camara
 controls.zoomSpeed = 0.5; // Velocidade do zoom
 controls.target.set(0,0.5,0); //Colocar o ponto foco
@@ -776,34 +751,19 @@ controls.mouseButtons = {
 }
 
 // Renderizar e animar
-let delta = 0;			  // tempo desde a última atualização
-relogio = new THREE.Clock(); // componente que obtém o delta
-let latencia_minima = 1 / 60;    // tempo mínimo entre cada atualização
-
-/*
-function animar() {
-    requestAnimationFrame(animar);  // agendar animar para o próximo animation frame
-    delta += relogio.getDelta();    // acumula tempo que passou desde a ultima chamada de getDelta
-
-    if (delta  < latencia_minima)   // não exceder a taxa de atualização máxima definida
-        return;                     
-        
-    renderer.render( cena, camara )
-    
-    delta = delta % latencia_minima;// atualizar delta com o excedente
-}
-*/
+relogio = new THREE.Clock();  // componente que obtém o delta
 
 function animar() {
 
     requestAnimationFrame(animar)
     misturador.update( relogio.getDelta() )
-    //stats.update()
+
     controls.update();
     renderer.render(cena, camara)
 }
 
 function luzes(cena) {
+    
     //Remover todas as cores, cada vez que a função é chamada
     //Caso contrario a cor vai ficando cada vez mais luminosa
     cena.children.forEach((child) => {
@@ -850,10 +810,7 @@ function luzes(cena) {
     cena.add(alvo);
 
     luzCandeeiro.target = alvo  
-    luzPonto.target = alvo
-    
-    //let aux = new THREE.SpotLightHelper(luzCandeeiro);
-    //cena.add(aux)
+    luzPonto.target = alvo   
 }
 
 luzes(cena)
